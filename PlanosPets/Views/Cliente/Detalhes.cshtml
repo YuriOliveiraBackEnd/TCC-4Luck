@@ -1,0 +1,104 @@
+﻿@model bibliotecaModel.ModelCliente
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+
+<p>
+    @Html.ActionLink("Cadastre seus pets", "Cadastrar", "Pets")
+</p>
+<div>
+    <h4>ModelCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logradouro_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logradouro_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nasc_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nasc_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senha_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senha_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar", "Index", "Home")
+</p>

@@ -1,0 +1,54 @@
+﻿@model bibliotecaModel.ModelProduto
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>ModelProduto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_prod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_prod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.valor_unitario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.valor_unitario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quant)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quant)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.desc_prod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.desc_prod)
+        </dd>
+
+     
+      
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Voltar", "Index", "Home")
+</p>

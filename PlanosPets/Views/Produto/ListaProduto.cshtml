@@ -1,0 +1,79 @@
+﻿@model IEnumerable<bibliotecaModel.ModelProduto>
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+<h2>ListaProduto</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.valor_unitario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.desc_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ft_prod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_func)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor_unitario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quant)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desc_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ft_prod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_func)
+            </td>
+            <td>
+                @Html.ActionLink("Atualizar", "Atualizar", new { Id = item.id_prod }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { Id = item.id_prod }) |
+                @Html.ActionLink("Excluir", "ExcluirProd", new { id = item.id_prod }, new { onclick = "return confirm('Deseja excluir?');" }) |
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<bibliotecaModel.ModelCliente>
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.id_pet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_pet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ft_pet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nasc_pet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RGA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_cli)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.id_pet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_pet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ft_pet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nasc_pet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RGA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_raca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_cli)
+            </td>
+            <td>
+                @Html.ActionLink("Deletar", "Excluir", new { id = item.id_pet }, new { onclick = "return confirm('Deseja excluir?');" })
+            </td>
+        </tr>
+    }
+
+</table>

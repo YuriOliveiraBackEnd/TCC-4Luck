@@ -1,0 +1,56 @@
+﻿@model bibliotecaModel.ModelCategorias
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Detalhes</title>
+</head>
+<body>
+    <div>
+        <h4>ModelCategorias</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id_categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_categoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nome_categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nome_categoria)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.desc_categoria)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.desc_categoria)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Atualizar", "Atualizar", new { id = Model.id_categoria }) |
+        @Html.ActionLink("Excluir", "ExcluirPet", new { id = Model.id_categoria }, new { onclick = "return confirm('Deseja excluir?');" })
+        @Html.ActionLink("Voltar", "IndexFunc", "Home")
+    </p>
+</body>
+</html>

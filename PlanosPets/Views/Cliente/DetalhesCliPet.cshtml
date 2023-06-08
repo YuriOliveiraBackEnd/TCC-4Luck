@@ -1,0 +1,92 @@
+﻿@model bibliotecaModel.ModelCliente
+
+@{
+    ViewBag.Title = "DetalhesCliPet";
+}
+
+<h2>DetalhesCliPet</h2>
+
+<div>
+    <h4>ModelCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logradouro_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logradouro_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nasc_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nasc_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.senha_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.senha_cli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_cli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_cli)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Atualizar seus dados", "Atualizar", new { email = Model.email_cli }) |
+    @Html.ActionLink("Seus pets", "ListarPet")
+</p>

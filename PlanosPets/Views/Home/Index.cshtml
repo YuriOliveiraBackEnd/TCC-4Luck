@@ -1,0 +1,48 @@
+﻿@model IEnumerable<bibliotecaModel.ModelProduto>
+
+
+@{
+    ViewBag.Title = "ForLuck";
+}
+<div class="">
+    <div class="row center">
+        <div class="col-lg-9">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3 col-md-6 mb-4" style="margin:2% 4%">
+                        <div class="card h-100">
+                            <a href="/Home/Detalhes/@item.id_prod">
+                                @if (@item.ft_prod != null)
+                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="@item.ft_prod" data-holder-rendered="true">}
+                                else
+                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="@item.ft_prod">@item.nome_prod</a>
+                                </h4>
+                                <h5>R$ @item.valor_unitario</h5>
+                            </div>
+                            <div class="card-footer space-between-flex" style="width:90%">
+                                <div>
+                                    @Html.ActionLink("Descubra mais", "Detalhes", "Home", new { id = item.id_prod }, new { @class = "btn btn-default btn-acao" })
+                                </div>
+                                <div>
+                                    @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                                    {
+                                        <input type="hidden" name="id" value=@item.id_prod>
+                                        <input type="hidden" name="pre" value=@item.valor_unitario>
+                                        <input type="hidden" name="quantidade" value="1">
+                                        <button type="submit" class="btn btn-default btn-acao-primario">Comprar</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

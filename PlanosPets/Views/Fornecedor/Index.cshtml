@@ -1,0 +1,63 @@
+﻿@model IEnumerable<bibliotecaModel.ModelFornecedor>
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+
+}
+
+<h2>Listar Fornecedor</h2>
+
+<p>
+    @Html.ActionLink("Adicionar novo Fornecedor", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_forn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_forn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNPJ_forn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel_forn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_prod)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_forn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_forn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNPJ_forn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tel_forn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_prod)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Atualizar", new { Id = item.id_forn }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { Id = item.id_forn }) |
+                @Html.ActionLink("Excluir", "ExcluirPet", new { id = item.id_forn }, new { onclick = "return confirm('Deseja excluir?');" })
+            </td>
+        </tr>
+    }
+
+</table>

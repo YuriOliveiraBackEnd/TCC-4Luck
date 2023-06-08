@@ -1,0 +1,41 @@
+﻿@model bibliotecaModel.ModelVenda
+
+@{
+    ViewBag.Title = "Carrinho";
+}
+
+<h2>Carrinho</h2>
+
+<table border="1">
+    <tr>
+        <td>Produto</td>
+        <td>Quantidade</td>
+        <td>Valor Unitário</td>
+        <td>Valor Total</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+    @foreach (var item in Model.ItensPedido)
+    {
+
+        <tr>
+            <td>@item.Produto</td>
+
+            <td><input type="number" value="@item.Qtd" /></td>
+            <td>@item.valorUnit</td>
+            <td>@item.valorParcial</td>
+            <td>@Html.ActionLink("Remover", "ExcluirItem", new { id = item.ItemPedidoID }, null)</td>
+        </tr>
+    }
+
+</table>
+
+<br />
+@Html.ActionLink("Continuar Comprando", "Index", "Home")
+
+<br />
+@Html.ActionLink("Finalizar Compra", "SalvarCarrinho", "Carrinho")
+
+<br /> Valor Total: @Model.ValorTotal

@@ -1,0 +1,88 @@
+﻿@model bibliotecaModel.ModelFornecedor
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Fornecedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CNPJ_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CNPJ_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_forn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logradouro_forn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logradouro_forn)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_prod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_prod)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Atualizar", new { Id = Model.id_forn }) |
+    @Html.ActionLink("Excluir", "ExcluirForn", new { id = Model.id_forn }, new { onclick = "return confirm('Deseja excluir?');" })
+    @Html.ActionLink("Voltar", "Index", "Fornecedor")
+</p>

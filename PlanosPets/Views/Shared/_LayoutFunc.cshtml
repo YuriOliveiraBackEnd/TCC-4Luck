@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Home", "IndexFunc", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar a navegação" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Gerenciar categoria", "Index", "Categoria", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Gerenciar cliente", "Index", "CLiente", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Gerenciar produto", "ListaProduto", "Produto", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Gerenciar funcionário", "Index", "Funcionario", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Gerenciar fornecedor", "Index", "Fornecedor", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Gerenciar Pets", "Index", "Pets", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+            </div>
+            @if (Session["FuncLogado"] != null)
+            {
+                <div class="nav navbar-nav navbar-right">
+                    <i class="fa-solid fa-user"></i>
+                    @Html.ActionLink("Logout", "Login", "Login/Logout", new { area = "" }, new { @class = "nav-link" })
+
+                    @Html.ActionLink(@Session["FuncLogado"].ToString(), "DetalhesEmail", "Funcionario", new { area = "" }, new { @class = "nav-link" })
+
+                </div>
+            }
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/chosen.jquery.js"></script>
+</body>
+</html>

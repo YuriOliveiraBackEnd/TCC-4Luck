@@ -1,0 +1,70 @@
+﻿@model IEnumerable<bibliotecaModel.ModelCliente>
+
+@{
+    ViewBag.Title = "ListarPet";
+}
+
+<h2>ListarPet</h2>
+
+
+<p>
+    @Html.ActionLink("Cadastrar pet", "Cadastrar", "Pets")
+</p>
+
+
+<div class="">
+
+    <div class="row center">
+
+        <div class="col-lg-9">
+
+            <div class="row">
+
+                @foreach (var item in Model)
+
+                {
+
+                    <div class="col-lg-3 col-md-6 mb-4" style="margin:2% 4%">
+
+                        <div class="card h-100">
+
+                            <a href="/Produto/Detalhes/@item.id_pet">
+
+                                @if (@item.ft_pet != null)
+
+                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="@item.ft_pet" data-holder-rendered="true">}
+
+                                else
+
+                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
+
+                            </a>
+
+                            <div class="card-body">
+
+                                <h5>Nome: @item.nome_pet</h5>
+                                <h5>Data de nascimento: @item.nasc_pet</h5>
+                                <h5>RGA: @item.RGA</h5>
+
+                            </div>
+
+                            <div class="card-footer space-between-flex" style="width:90%">
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    @Html.ActionLink("Atualizar dados do pet", "AtualizarPet", new { id = item.id_pet })
+                    @Html.ActionLink("Excluir", "ExcluirPet", new { id = item.id_pet }, new { onclick = "return confirm('Deseja excluir?');" })
+                }
+                @Html.ActionLink("Voltar", "DetalhesCliPet")
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

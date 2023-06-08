@@ -1,0 +1,63 @@
+﻿@model IEnumerable<bibliotecaModel.ModelVenda>
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+
+<h2>VendaHistorico</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_venda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.data_venda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horaVenda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_cli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pagamento)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_venda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_venda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.horaVenda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_cli)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pagamento)
+            </td>
+
+        </tr>
+    }
+
+</table>

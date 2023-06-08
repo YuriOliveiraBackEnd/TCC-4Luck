@@ -1,0 +1,61 @@
+﻿@model IEnumerable<bibliotecaModel.ModelRacas>
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Cadastrar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id_raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nome_raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ft_raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_animal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_func)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_raca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome_raca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ft_raca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_animal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_func)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Deletar", "Excluir", new { id = item.id_raca })
+            </td>
+        </tr>
+
+    }
+    </table>

@@ -1,0 +1,106 @@
+﻿@model bibliotecaModel.ModelCliente
+
+
+@{
+    ViewBag.Title = "Deletar";
+}
+
+<h2>Deletar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h3>deseja deletar este cliente?</h3>
+    <div>
+        <h4>Cliente</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.id_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.id_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nome_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nome_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CPF_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CPF_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nasc_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nasc_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.cep_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.cep_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.num_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.num_cli)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.logradouro_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.logradouro_cli)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.senha_cli)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.senha_cli)
+            </dd>
+
+
+        </dl>
+        <div class="form-group">
+            @Html.HiddenFor(model => model.id_cli, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.id_cli, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.id_cli, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Deletar" class="btn btn-default" /> |
+            @Html.ActionLink("Cancelar", "Index")
+        </div>
+    </div>
+}

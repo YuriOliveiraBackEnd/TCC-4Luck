@@ -1,0 +1,94 @@
+﻿@model bibliotecaModel.ModelFuncionario
+
+@{
+    if (Session["Funclogado"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutFunc.cshtml";
+    }
+
+}
+
+<div>
+    <h4>ModelFuncionario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nome_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nome_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cep_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cep_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logradouro_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.logradouro_func)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nasc_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nasc_func)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tel_func)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tel_func)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "AtualizarPerfil", new { id = Model.id_func }) |
+    @Html.ActionLink("Excluir", "ExcluirPet", new { id = Model.id_func }, new { onclick = "return confirm('Deseja excluir?');" })
+
+</p>
