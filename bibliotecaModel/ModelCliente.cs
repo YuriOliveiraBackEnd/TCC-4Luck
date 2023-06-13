@@ -53,6 +53,15 @@ namespace bibliotecaModel
         [DisplayName("Logradouro")]
         [Required(ErrorMessage = "insira seu logradouro")]
         public string logradouro_cli { get; set; }
+        [DisplayName("bairro")]
+        [Required(ErrorMessage = "insira seu bairro")]
+        public string bairro { get; set; }
+        [DisplayName("cidade")]
+        [Required(ErrorMessage = "insira seu cidade")]
+        public string cidade { get; set; }
+        [DisplayName("uf")]
+        [Required(ErrorMessage = "insira seu uf")]
+        public string uf { get; set; }
 
         [DisplayName("Data de nascimento")]
         [Required(ErrorMessage = "insira sua data de nascimento")]
@@ -65,14 +74,13 @@ namespace bibliotecaModel
         [Required(ErrorMessage = "insira sua senha")]
         public string senha_cli { get; set; }
 
-
-        [DisplayName("Confirmar senha")]
         [DataType(DataType.Password)]
+        [DisplayName("Confirmar senha")]
         [Required(ErrorMessage = "Confirme sua senha")]
         [Compare(nameof(senha_cli), ErrorMessage = "Senhas digitadas não conferem.")]
         public string confirmar_senha { get; set; }
 
-        [DisplayName("Telefone")]
+        [DisplayName("Telefone ")]
         [MaxLength(11, ErrorMessage = "O telefone deve conter 11 caracteres")]
         [MinLength(11, ErrorMessage = "O telefone deve conter 11 caracteres")]
         [RegularExpression(@"^[0-9]+${11,11}", ErrorMessage = "Somente números")]

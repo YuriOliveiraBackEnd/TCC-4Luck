@@ -171,5 +171,17 @@ namespace PlanosPets.Controllers
             }
 
         }
+        public ActionResult ListarProdDog()
+        {
+            var metodoProduto = new ProdutoDAO();
+            var produto = metodoProduto.Listar();
+            return View(produto);
+        }
+        public ActionResult ListarProCat()
+        {
+            var metodoProduto = new ProdutoDAO();
+            var produto = metodoProduto.Listar();
+            return View(produto);
+        }
     }
 }

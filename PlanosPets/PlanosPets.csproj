@@ -197,6 +197,34 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\cadastrar.css" />
+    <Content Include="assets\css\carrinho.css" />
+    <Content Include="assets\css\catalogo.css" />
+    <Content Include="assets\css\forma-pagamento.css" />
+    <Content Include="assets\css\glider.css" />
+    <Content Include="assets\css\lista.css" />
+    <Content Include="assets\css\login.css" />
+    <Content Include="assets\css\perfil-cliente.css" />
+    <Content Include="assets\css\produto.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\images\banner1.png" />
+    <Content Include="assets\images\cachorro-sobre.png" />
+    <Content Include="assets\images\categoria-cachorros-home.png" />
+    <Content Include="assets\images\categoria-gatos-home.png" />
+    <Content Include="assets\images\gato-plano1.svg" />
+    <Content Include="assets\images\gato-plano2.svg" />
+    <Content Include="assets\images\gato-plano3.svg" />
+    <Content Include="assets\images\logo-branca.svg" />
+    <Content Include="assets\images\logo.svg" />
+    <Content Include="assets\images\perfil-cliente.png" />
+    <Content Include="assets\images\petisco-dog.png" />
+    <Content Include="assets\images\racao.png" />
+    <Content Include="assets\images\raçao-pedigree.png" />
+    <Content Include="assets\js\carrinho.js" />
+    <Content Include="assets\js\glider.js" />
+    <Content Include="assets\js\header.js" />
+    <Content Include="assets\js\produto.js" />
+    <Content Include="assets\js\slides-produto.js" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -260,8 +288,6 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="CSS\style.css" />
-    <Content Include="CSS\Stylecss.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

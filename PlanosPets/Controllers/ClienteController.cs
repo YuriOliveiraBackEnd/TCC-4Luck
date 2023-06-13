@@ -81,6 +81,7 @@ namespace PlanosPets.Controllers
         }
 
         //tela de cadastro do cliente
+        [HttpGet]
         public ActionResult Cadastrar()
         {
             return View();
@@ -89,51 +90,61 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Cadastrar(ModelCliente cliente)
         {
+            ModelState.Remove("RGA");
+            ModelState.Remove("nome_pet");
+            ModelState.Remove("nasc_pet");
+            if (!ModelState.IsValid)
 
-
-            ClienteDAO novoClienteDAO = new ClienteDAO();
-            string cpf = new ClienteDAO().SelectCPFDoCliente(cliente.CPF_cli);
-            string email = new ClienteDAO().SelectEmailDoCliente(cliente.email_cli);
-            if (cpf == cliente.CPF_cli && email == cliente.email_cli)
             {
-                ViewBag.Email = "Email já existente";
-                ViewBag.CPF = "CPF já existente";
-                return View(cliente);   
-            }
-
-            else if (cpf == cliente.CPF_cli)
-            {
-                ViewBag.CPF = "CPF já existente";
                 return View(cliente);
             }
 
-            else if (email == cliente.email_cli)
-            {
-                ViewBag.Email = "Email já existente";
-                return View(cliente);
-            };
-            ModelCliente novoCliente = new ModelCliente()
-            {
-                nome_cli = cliente.nome_cli,
-                email_cli = cliente.email_cli,
-                CPF_cli = cliente.CPF_cli,
-                cep_cli = cliente.cep_cli,
-                num_cli = cliente.num_cli,
-                logradouro_cli = cliente.logradouro_cli,
-                nasc_cli = cliente.nasc_cli,
-                tel_cli = cliente.tel_cli,
-                senha_cli = cliente.senha_cli
-            };
-            novoClienteDAO.InsertCliente(novoCliente);
+                ClienteDAO novoClienteDAO = new ClienteDAO();
+                string cpf = new ClienteDAO().SelectCPFDoCliente(cliente.CPF_cli);
+                string email = new ClienteDAO().SelectEmailDoCliente(cliente.email_cli);
+                if (cpf == cliente.CPF_cli && email == cliente.email_cli)
+                {
+                    ViewBag.Email = "Email já existente";
+                    ViewBag.CPF = "CPF já existente";
+                    return View(cliente);
+                }
+
+                else if (cpf == cliente.CPF_cli)
+                {
+                    ViewBag.CPF = "CPF já existente";
+                    return View(cliente);
+                }
+
+                else if (email == cliente.email_cli)
+                {
+                    ViewBag.Email = "Email já existente";
+                    return View(cliente);
+                };
+                ModelCliente novoCliente = new ModelCliente()
+                {
+                    nome_cli = cliente.nome_cli,
+                    email_cli = cliente.email_cli,
+                    CPF_cli = cliente.CPF_cli,
+                    cep_cli = cliente.cep_cli,
+                    num_cli = cliente.num_cli,
+                    logradouro_cli = cliente.logradouro_cli,
+                    nasc_cli = cliente.nasc_cli,
+                    tel_cli = cliente.tel_cli,
+                    senha_cli = cliente.senha_cli
+                };
+                novoClienteDAO.InsertCliente(novoCliente);
 
 
-            FormsAuthentication.SetAuthCookie(cliente.email_cli, false);
-            Session["ClienteLogado"] = cliente.email_cli.ToString();
-            Session["senhaLogado"] = cliente.senha_cli.ToString();
+                FormsAuthentication.SetAuthCookie(cliente.email_cli, false);
+                Session["ClienteLogado"] = cliente.email_cli.ToString();
+                Session["senhaLogado"] = cliente.senha_cli.ToString();
 
-            return RedirectToAction("Index", "Home");
-            
-        }
+                return RedirectToAction("Index", "Home");
+            }
+          
+        
+          
+        
 
         //action que lista o cliente
         //seleciona o cliente que está logado através da session

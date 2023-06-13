@@ -1,121 +1,129 @@
 ﻿@model bibliotecaModel.ModelCliente
+ <link href="~/assets/css/cadastrar.css" rel="stylesheet"/>
 
-@{
-    ViewBag.Title = "Cadastrar";
-}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
         crossorigin="anonymous"></script>
 @Scripts.Render("~/Scripts/cep.js")
-<h2>Cadastrar</h2>
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <!--Titulo e Logo-->
+            <div class="info-cadastrar">
+                <h1 class="titulo">Cadastre-se</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.nome_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.nome_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.nome_cli, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.email_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.email_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.email_cli, "", new { @class = "text-danger" })
-            @ViewBag.Email
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.CPF_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CPF_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CPF_cli, "", new { @class = "text-danger" })
-            @ViewBag.CPF
-        </div>
-    </div>
+            @using (Html.BeginForm())
+            {
+                <div class="itens-cadastro">
+                   
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_cli, new { @class = "input", placeholder = "Nome" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nome_cli, "", new { @class = "text-danger", style = "display:inline" })
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cep_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.cep_cli, new { @id = "cep", @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.cep_cli, "", new { @class = "text-danger", @id = "logradouro_func" })
-        </div>
-    </div>
-    <label>
-        Bairro
-        <input name="bairro" type="text" id="bairro" size="40" class="form-control" />
-    </label>
-    <br />
-    <label>
-        Cidade
-        <input name="cidade" type="text" id="cidade" size="40" class="form-control" />
-    </label>
-    <br />
-    <label>
-        Estado
-        <input name="uf" type="text" id="uf" size="2" class="form-control" />
-    </label>
-    <br />
-    <div class="form-group">
-        @Html.LabelFor(model => model.logradouro_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.logradouro_cli, new { @id = "rua", @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.logradouro_cli, "", new { @class = "text-danger", @id = "logradouro_func" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.num_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(model => model.num_cli, new { @id = "rua", @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.num_cli, "", new { @class = "text-danger", @id = "logradouro_func" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.nasc_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.nasc_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.nasc_cli, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.email_cli, new { @class = "input", placeholder = "E-mail" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.email_cli, "", new { @class = "text-danger" })
+                    <p style="color:red;">@ViewBag.Email</p>
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.senha_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.senha_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.senha_cli, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.confirmar_senha, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.confirmar_senha, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.confirmar_senha, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.tel_cli, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.tel_cli, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.tel_cli, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Cadastrar" class="btn btn-default" />
-        </div>
-    </div>
 
-}
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.CPF_cli, new { @class = "input", placeholder = "CPF" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.CPF_cli, "", new { @class = "text-danger" })
+                    <p style="color:red;">@ViewBag.CPF </p>
 
-<div>
-    @Html.ActionLink("Voltar", "Index", "Home")
-</div>
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.cep_cli, new { @id = "cep", @class = "input", placeholder = "CEP" })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cep_cli, "", new { @class = "text-danger" })
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.bairro, new { @id = "bairro", @class = "input", placeholder = "Bairro" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.bairro, "", new { @class = "text-danger" })
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.cidade, new { @id = "cidade", @class = "input", placeholder = "Cidade" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cidade, "", new { @class = "text-danger", })
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.uf, new { @id = "uf", @class = "input", placeholder = "UF" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.uf, "", new { @class = "text-danger" })
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.logradouro_cli, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.logradouro_cli, "", new { @class = "text-danger" })
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.num_cli, new { @class = "input", placeholder = "Número" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.num_cli, "", new { @class = "text-danger", @id = "logradouro_func" })
+
+
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nasc_cli, "", new { @class = "text-danger" })
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.senha_cli, new { @class = "input", placeholder = "Senha", @type = "password" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.senha_cli, "", new { @class = "text-danger" })
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.confirmar_senha, new { @class = "input", placeholder = "Confirmar senha", @type = "password" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.confirmar_senha, "", new { @class = "text-danger" })
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.tel_cli, new { @class = "input", placeholder = "Telefone" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.tel_cli, "", new { @class = "text-danger" })
+
+
+                </div>
+
+
+
+
+                            <input type="submit" value="Cadastrar" class="botao-cadastrar " />
+                            }
+
+</section>
+    </main>
+</body>
+</html>

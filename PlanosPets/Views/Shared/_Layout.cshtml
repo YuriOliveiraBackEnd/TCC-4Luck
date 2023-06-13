@@ -6,73 +6,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/assets/css/glider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Alternar a navegação" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+
+    <nav>
+        <div class="nav-bar">
+            <i class="bx bx-menu sidebarOpen"></i>
+            <div class="logo">
+                <img class="imagem-logo" src="~/assets/images/logo-branca.svg">
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Planos", "ListarPlanos", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">CodingLab</a></span>
+                    <i class="bx bx-x siderbarClose"></i>
+                </div>
+                <ul class="nav-links">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "listanav" })</li>
+
+                    <li>@Html.ActionLink("Planos", "ListarPlanos", "Home", new { area = "" }, new { @class = "listanav" })</li>
+                    <li>@Html.ActionLink("Cachorro", "ListaProdDog", "Produto", new { area = "" }, new { @class = "listanav" })</li>
+                    <li>@Html.ActionLink("Gato", "ListaProdCat", "Produto", new { area = "" }, new { @class = "listanav" })</li>
                     @if (Session["FuncLogado"] != null)
                     {
-                        <li>@Html.ActionLink("Área Adiministrativa", "IndexFunc", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Área Adiministrativa", "IndexFunc", "Home", new { area = "" }, new { @class = "listanav" })</li>
                     }
+
+                    <div class="botao-login">
+                        <i class="fa-solid fa-user" id="login-icon"></i>
+                        @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "login" })
+
+                    </div>
                 </ul>
             </div>
-            <!--Header com pesquisar-->
-            <!--Logo Header-->
-            <div class="logo">
-                <img class="imagem-logo" src="~/Images/logo-branca.svg">
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class="bx bx-moon moon"></i>
+                    <i class="bx bx-sun sun"></i>
+                </div>
+                <div class="searchBox">
+                    <div class="searchToggle">
+                        <i class="bx bx-x cancel"></i>
+                        <i class="bx bx-search search"></i>
+                    </div>
+                    @using (Html.BeginForm("Buscar", "Home", FormMethod.Post))
+                    {
+                        <div class="search-field">
+                            <input type="text" name="pesquisar" placeholder="Search...">
+                            <i class="bx bx-search"></i>
+                        </div>
+                    }
+                    </div>
+                <!--Login-->
+
+
+                <div class="botao-carrinho">
+                    <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
+                </div>
+                <!-- Cart -->
+                <div class="cart">
+                    <h2 class="cart-title">Seu Carrinho</h2>
+                    <!-- Content -->
+                    <div class="cart-content">
+
+                    </div>
+
+                    <!-- Total -->
+                    <div class="total">
+                        <div class="total-title">Total</div>
+                        <div class="total-price">R$0</div>
+                    </div>
+
+                    <!-- Buy Button -->
+                    @Html.ActionLink("Ir para o carrinho", "Carrinho", "Carrinho", new { area = "" }, new { @class = "btn-buy" })
+                   
+
+                    <!-- Cart Close -->
+                    <i class="bx bx-x" id="close-cart"></i>
+                </div>
+                <!-- Cart fIM  -->
             </div>
-            <!--Barra de Pesquisa-->
-            <div class="barra-pesquisa">
-                @using (Html.BeginForm("Buscar", "Home", FormMethod.Post))
-                {
-                    <input type="text" name="pesquisar" id="pesquisar" placeholder="Pesquise aqui!">
-                    <input type="submit" text="Buscar" />
-                }
-                <!--Lupa da Barra de Pesquisa-->
-                <i class="fa-solid fa-magnifying-glass" id="lupa-pesquisar"></i>
-            </div>
-            <!--CRIANDO UM IF PARA A SESSÃO VERIFICAR SE O USUARIO ESTARÁ LOGADO -->
-            @if (Session["ClienteLogado"] != null)
-            {
-                <!--criando o actionLink do login na barra de menu -->
-                <ul class="nav navbar-nav navbar-right">
-
-                    @Html.ActionLink("Logout", "Login", "Login/Logout", new { area = "" }, new { @class = "nav-link" })
-
-                    @Html.ActionLink(@Session["ClienteLogado"].ToString(), "DetalhesCliPet", "Cliente", new { area = "" }, new { @class = "nav-link" })
-                </ul>
-
-            }
-
-            else
-            {
-                <ul class="nav navbar-nav navbar-right">
-                    <!--caso o login não esteja correto ele volta para novamente para o login -->
-
-                    <li>  @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            }
-
-            <ul class="nav navbar-nav navbar-right">
-                <!--caso o login não esteja correto ele volta para novamente para o login -->
-
-                <li>  @Html.ActionLink("Carrinho", "Carrinho", "Carrinho", new { area = "" }, new { @class = "nav-link" })</li>
-            </ul>
         </div>
+   
+
+     
     </nav>
+ 
+           
     <div class="container body-content">
         @RenderBody()
         <hr />
