@@ -1,54 +1,127 @@
 ﻿@model bibliotecaModel.ModelProduto
 
-@{
-    ViewBag.Title = "Detalhes";
-}
 
-<h2>Detalhes</h2>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="~/assets/css/produto.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="~/assets/css/glider.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+<title>Document</title>
 
-<div>
-    <h4>ModelProduto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-    
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_prod)
-        </dt>
+<main>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome_prod)
-        </dd>
+    <div style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="#">Cachorro</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Ração</li>
+        </ol>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.valor_unitario)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.valor_unitario)
-        </dd>
+    <section class="produto">
+        <div class="img-produto">
+            <img src=" @Html.DisplayFor(model => model.ft_prod)" alt="">
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.quant)
-        </dt>
+        <div class="desc-produto">
+            <h1 class="titulo-produto">
+                @Html.DisplayFor(model => model.desc_prod)
+            </h1>
 
-        <dd>
-            @Html.DisplayFor(model => model.quant)
-        </dd>
+            <h3 class="titulo-tamanho">
+                Tamanhos
+            </h3>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.desc_prod)
-        </dt>
+            <div id="select-tamanho">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="tamanho">
+                        <span>10 Kg</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="tamanho">
+                        <span>15 Kg</span>
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="tamanho">
+                        <span>20 Kg</span>
+                    </label>
+                </div>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.desc_prod)
-        </dd>
+            <br>
+            <br>
 
-     
-      
+            <h2 class="preco-produto">
+                R$ @Html.DisplayFor(model => model.valor_unitario)
+            </h2>
 
-    </dl>
-</div>
-<p>
+            <br>
+            @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+            {
+                <div class="quant-add">
+                    <input type="hidden" name="id" value= @Html.DisplayFor(model => model.id_prod)>
+                     @Html.TextBoxFor(model => model.valor_unitario ,new { Name = "pre", @type = "hidden" })
+                    <input type="hidden" id="" min="1" max="50" value="1">
+                    <button type="submit" class=" add-cart">Adicionar ao carrinho</button>
+                    </div>
+                    }
 
-    @Html.ActionLink("Voltar", "Index", "Home")
-</p>
+                </div>
+
+</section>
+
+
+    <section class="info-produto">
+
+        <h1 class="titulo-descricao">Descrição</h1>
+
+        <div>
+            <ul class="lista-info">
+                <li class="item-lista">
+                    - Indicada para gatos adultos;
+                </li>
+
+                <li class="item-lista">
+                    - Cozida a vapor;
+                </li>
+
+                <li class="item-lista">
+                    - Feita para os paladares mais exigentes;
+                </li>
+
+                <li class="item-lista">
+                    - Auxilia no controle de peso;
+                </li>
+
+                <li class="item-lista">
+                    - Alimento reduzido em calorias e gorduras e enriquecido com carnitina;
+                </li>
+
+                <li class="item-lista">
+                    - Contribui para saúde da pele e do pelo;
+                </li>
+
+                <li class="item-lista">
+                    - Com ômega 6, zinco e vitamina A;
+                </li>
+
+                <li class="item-lista">
+                    - Sem conservantes, aromas e corantes artificiais;
+                </li>
+            </ul>
+
+        </div>
+    </section>
+
+
+
+</main>
+

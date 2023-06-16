@@ -51,7 +51,9 @@ namespace PlanosPets.Controllers
         {
             if (!ModelState.IsValid)
             {
-                FuncionarioDAO novoFuncionarioDAO = new FuncionarioDAO();
+                return View(funcionario);
+            }
+            FuncionarioDAO novoFuncionarioDAO = new FuncionarioDAO();
                 string cpf = new FuncionarioDAO().SelectCPFFunc(funcionario.CPF_func);
                 string email = new FuncionarioDAO().SelectEmailFunc(funcionario.email_func);
                 if (cpf == funcionario.CPF_func && email == funcionario.email_func)
@@ -96,8 +98,7 @@ namespace PlanosPets.Controllers
 
                 return RedirectToAction("Index");
             }
-            return View(funcionario);
-        }
+       
        
 
 
@@ -127,13 +128,19 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult AtualizarPerfil(ModelFuncionario funcionario)
         {
+            ModelState.Remove("uf");
+            ModelState.Remove("bairro");
+            ModelState.Remove("cidade");
+            ModelState.Remove("Confirmar_senha");
             if (!ModelState.IsValid)
             {
+                return View(funcionario);
+            }
                 var metodoFuncionario = new FuncionarioDAO();
                 metodoFuncionario.UpdateFuncionario(funcionario);
-                return RedirectToAction("Index");
-            }
-            return View(funcionario);
+                return RedirectToAction("DetalhesEmail");
+            
+         
         }
         public ActionResult AtualizarPerfil(int id)
         {
@@ -158,7 +165,11 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Atualizar(ModelFuncionario funcionario)
         {
-            if (!ModelState.IsValid)
+            ModelState.Remove("uf");
+            ModelState.Remove("bairro");
+            ModelState.Remove("cidade");
+            ModelState.Remove("Confirmar_senha");
+            if (ModelState.IsValid)
             {
                 var metodoFuncionario = new FuncionarioDAO();
                 metodoFuncionario.UpdateFuncionario(funcionario);

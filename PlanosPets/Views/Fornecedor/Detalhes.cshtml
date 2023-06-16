@@ -6,83 +6,113 @@
         Layout = "~/Views/Shared/_LayoutFunc.cshtml";
     }
 
-
 }
+<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
 
-<h2>Detalhes</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+@Scripts.Render("~/Scripts/cep.js")
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <!--Titulo e Logo-->
+            <div class="info-cadastrar">
+                <h1 class="titulo">detalhes</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
 
-<div>
-    <h4>Fornecedor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.id_forn)
-        </dt>
+         
+                <div class="itens-cadastro">
 
-        <dd>
-            @Html.DisplayFor(model => model.id_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nome_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.email_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CNPJ_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CNPJ_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.cep_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.cep_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.num_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.num_forn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.logradouro_forn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.logradouro_forn)
-        </dd>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.id_forn, new { @class = "input", placeholder = "Id" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_forn, new { @class = "input", placeholder = "Nome" })
+                    </div>
 
 
-        <dt>
-            @Html.DisplayNameFor(model => model.id_prod)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_prod)
-        </dd>
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "Atualizar", new { Id = Model.id_forn }) |
-    @Html.ActionLink("Excluir", "ExcluirForn", new { id = Model.id_forn }, new { onclick = "return confirm('Deseja excluir?');" })
-    @Html.ActionLink("Voltar", "Index", "Fornecedor")
-</p>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.email_forn, new { @class = "input", placeholder = "E-mail" })
+                    </div>
+
+
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.CNPJ_forn, new { @class = "input", placeholder = "CNPJ" })
+                    </div>
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.cep_forn, new { @id = "cep", @class = "input", placeholder = "CEP" })
+
+                    </div>
+
+
+
+                
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.logradouro_forn, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.num_forn, new { @class = "input", placeholder = "Número" })
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.tel_forn, new { @class = "input", placeholder = "Telefone" })
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.id_prod, new { @class = "input", placeholder = "id do produto" })
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+        </section>
+    </main>
+</body>
+</html>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

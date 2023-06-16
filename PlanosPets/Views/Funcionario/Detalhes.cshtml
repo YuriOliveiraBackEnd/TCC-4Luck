@@ -1,6 +1,5 @@
 ﻿@model bibliotecaModel.ModelFuncionario
 
-
 @{
     if (Session["Funclogado"] != null)
     {
@@ -9,80 +8,86 @@
 
 }
 
-<h2>Detalhes</h2>
+<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
 
-<div>
-    <h4>Funcionário</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.id_func)
-        </dt>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+@Scripts.Render("~/Scripts/cep.js")
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <div class="info-cadastrar">
+                <h1 id="cad-title2">Detalhes</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
+           
+            <div class="itens-cadastro">
+                @Html.TextBoxFor(model => model.id_func, new { @class = "input", placeholder = "ID" })
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.nome_func, new { @class = "input", placeholder = "Nome" })
+                </div>
+                @Html.ValidationMessageFor(model => model.nome_func, "", new { @class = "text-danger", style = "display:inline" })
 
-        <dd>
-            @Html.DisplayFor(model => model.id_func)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_func)
-        </dt>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.email_func, new { @class = "input", placeholder = "E-mail" })
+                </div>
+                @Html.ValidationMessageFor(model => model.email_func, "", new { @class = "text-danger" })
+                <div class="text-danger">@ViewBag.Email</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome_func)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email_func)
-        </dt>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.CPF_func, new { @class = "input", placeholder = "CPF" })
+                </div>
+                @Html.ValidationMessageFor(model => model.CPF_func, "", new { @class = "text-danger" })
+                <div class="text-danger">@ViewBag.CPF</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.email_func)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CPF_func)
-        </dt>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.tel_func, new { @class = "input", placeholder = "Telefone" })
+                </div>
+                @Html.ValidationMessageFor(model => model.tel_func, "", new { @class = "text-danger" })
 
-        <dd>
-            @Html.DisplayFor(model => model.CPF_func)
-        </dd>
+                <div id="input-date">
+                    @Html.TextBoxFor(model => model.nasc_func, new { @class = "input", placeholder = "Data de nascimento" })
+                    @Html.ValidationMessageFor(model => model.nasc_func, "", new { @class = "text-danger" })
+                </div>
+                <div id="input-cep">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nasc_func)
-        </dt>
+                    @Html.TextBoxFor(model => model.cep_func, new { @id = "cep", @class = "input", placeholder = "CEP" })
+                    @Html.ValidationMessageFor(model => model.cep_func, "", new { @class = "text-danger" })
 
-        <dd>
-            @Html.DisplayFor(model => model.nasc_func)
-        </dd>
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cep_func)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cep_func)
-        </dd>
+               
+                    @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                    @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
+               
+            <div id="input-cep">
+                    @Html.TextBoxFor(model => model.num_func, new { @class = "input", placeholder = "Número" })
+                    @Html.ValidationMessageFor(model => model.num_func, "", new { @class = "text-danger", @id = "logradouro_func" })
+                </div>
+            </div>
+          
+            
+        </section>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.num_func)
-        </dt>
+    </main>
+</body>
+</html>
 
-        <dd>
-            @Html.DisplayFor(model => model.num_func)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.logradouro_func)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.logradouro_func)
-        </dd>
+@section Scripts {
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Editar", "Atualizar", new { Id = Model.id_func }) |
-    @Html.ActionLink("Excluir", "ExcluirFunc", new { id = Model.id_func }, new { onclick = "return confirm('Deseja excluir?');" })
-    @Html.ActionLink("Voltar", "Index", "Funcionario")
-</p>
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+
+
+
+

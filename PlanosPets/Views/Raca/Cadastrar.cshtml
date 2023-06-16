@@ -10,79 +10,68 @@
 }
 
 
-<!DOCTYPE html>
 
+
+<title>Cadastrar</title>
+<link rel="stylesheet" href="~/assets/css/cadastrar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="scripts-forms" defer></script>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Cadastrar</title>
-</head>
 <body>
-    @using (Html.BeginForm("Cadastrar", "Raca", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
+    <main>
 
-        <div class="form-horizontal">
-            <h4>ModelProduto</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.nome_raca, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.nome_raca, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.nome_raca, "", new { @class = "text-danger" })
-                    @ViewBag.Raca
-                </div>
+        <section class="sec-cadastrar">
+            <div class="info-cadastrar">
+                <h1 id="cad-title3">Cadastre a raça</h1>
+                <img src="./assets/images/logo-branca.svg" alt="">
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.tipo_animal, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.tipo_animal, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.tipo_animal, "", new { @class = "text-danger" })
+            @using (Html.BeginForm("Cadastrar", "Raca", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="itens-cadastro">
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_raca, new { @class = "input", placeholder = "Nome da raça..." })
+                        @Html.ValidationMessageFor(model => model.nome_raca, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.tipo_animal, new { @class = "input", placeholder = "Tipo animal..." })
+                        @Html.ValidationMessageFor(model => model.tipo_animal, "", new { @class = "text-danger" })
+                       
+                    </div>
+                
+            
                 </div>
-            </div>
-         
-
-
-            <div class="form-group center">
-
-                <div>
-
-                    <label class="control-label col-md-2" for="file">Foto</label>
-
-                </div>
-
-                <div class="col-md-10">
-
-                    <input type="file" name="file" id="file" /> <br />
-
-                </div>
-
-            </div>
-
-
-
-            <div class="form-group center">
-
-                <div class="col-md-10">
-
-                    @ViewBag.msg <br />
-
+                <div id="sec-arquivo">
+                    <div id="file-pet">
+                        <label class="botao-arquivo" for="file">foto</label>
+                        <input type="file" name="file" id="file" />
+                    </div>
                 </div>
 
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Cadastrar" class="btn btn-default" />
+                <div class="cadastra-bt">
+                    <input type="submit" value="Cadastrar" class="botao-cadastrar" />
                 </div>
-            </div>
-        </div>
-    }
 
-<div>
-    @Html.ActionLink("Voltar", "IndexFunc", "Home")
-</div>
+            }
+        </section>
+
+    </main>
 </body>
 </html>
+
+
+
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#gato').chosen();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cachorro').chosen();
+        });
+    </script>
+}

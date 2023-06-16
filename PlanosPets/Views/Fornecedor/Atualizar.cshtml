@@ -7,86 +7,111 @@
     }
 
 }
+<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+@Scripts.Render("~/Scripts/cep.js")
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <!--Titulo e Logo-->
+            <div class="info-cadastrar">
+                <h1 class="titulo">Atualize o Fornecedor</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
+
+            @using (Html.BeginForm())
+            {
+                <div class="itens-cadastro">
+
+                    @Html.HiddenFor(model => model.id_forn)
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_forn, new { @class = "input", placeholder = "Nome" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nome_forn, "", new { @class = "text-danger", style = "display:inline" })
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.email_forn, new { @class = "input", placeholder = "E-mail" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.email_forn, "", new { @class = "text-danger" })
+                    <div class="text-danger">@ViewBag.Email</div>
 
-<div class="form-horizontal">
-    <h4>Fornecedor</h4>
-   
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.id_forn)
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.nome_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.nome_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.nome_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.email_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.email_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.email_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.CNPJ_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.CNPJ_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.CNPJ_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.cep_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.cep_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.cep_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.num_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.num_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.num_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.logradouro_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.logradouro_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.logradouro_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.CNPJ_forn, new { @class = "input", placeholder = "CNPJ" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.CNPJ_forn, "", new { @class = "text-danger" })
+                    <div class="text-danger">@ViewBag.CNPJ</div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.tel_forn, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.tel_forn, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.tel_forn, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Atualizar" class="btn btn-default" />
-        </div>
-    </div>
-</div>
-}
 
-<div>
-    @Html.ActionLink("Voltar", "Index", "Fornecedor")
-</div>
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.cep_forn, new { @id = "cep", @class = "input", placeholder = "CEP" })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.cep_forn, "", new { @class = "text-danger" })
+
+
+                
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.logradouro_forn, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.logradouro_forn, "", new { @class = "text-danger" })
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.num_forn, new { @class = "input", placeholder = "Número" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.num_forn, "", new { @class = "text-danger", @id = "logradouro_func" })
+
+
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(model => model.tel_forn, new { @class = "input", placeholder = "Telefone" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.tel_forn, "", new { @class = "text-danger" })
+
+
+
+
+
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.id_prod, new { @class = "input", placeholder = "id do produto" })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.id_prod, "", new { @class = "text-danger" })
+
+
+
+
+                </div>
+
+
+
+           
+
+
+
+
+                <input type="submit" value="Atualizar" class="botao-cadastrar " />
+            }
+
+        </section>
+    </main>
+</body>
+</html>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

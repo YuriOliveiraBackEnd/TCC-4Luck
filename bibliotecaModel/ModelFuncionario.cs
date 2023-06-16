@@ -76,7 +76,15 @@ namespace bibliotecaModel
         [RegularExpression(@"^[0-9]+${11,11}", ErrorMessage = "Somente números")]
         [Required(ErrorMessage = "insira seu telefone")]
         public string tel_func { get; set; }
-
+        [DisplayName("bairro")]
+        [Required(ErrorMessage = "insira seu bairro")]
+        public string bairro { get; set; }
+        [DisplayName("cidade")]
+        [Required(ErrorMessage = "insira seu cidade")]
+        public string cidade { get; set; }
+        [DisplayName("uf")]
+        [Required(ErrorMessage = "insira seu uf")]
+        public string uf { get; set; }
 
 
 

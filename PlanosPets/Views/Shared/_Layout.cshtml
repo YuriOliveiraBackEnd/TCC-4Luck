@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
-    <link href="~/assets/css/style.css" rel="stylesheet"/>
+    <link href="~/assets/css/style1.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="~/assets/css/glider.css">
@@ -29,90 +29,181 @@
                     <i class="bx bx-x siderbarClose"></i>
                 </div>
                 <ul class="nav-links">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "listanav" })</li>
+                    <li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "listanav" })</li>
 
                     <li>@Html.ActionLink("Planos", "ListarPlanos", "Home", new { area = "" }, new { @class = "listanav" })</li>
-                    <li>@Html.ActionLink("Cachorro", "ListaProdDog", "Produto", new { area = "" }, new { @class = "listanav" })</li>
-                    <li>@Html.ActionLink("Gato", "ListaProdCat", "Produto", new { area = "" }, new { @class = "listanav" })</li>
+                    <li>@Html.ActionLink("Cachorro", "ListarProdDog", "Produto", new { area = "" }, new { @class = "listanav" })</li>
+                    <li>@Html.ActionLink("Gato", "ListarProdCat", "Produto", new { area = "" }, new { @class = "listanav" })</li>
                     @if (Session["FuncLogado"] != null)
                     {
                         <li>@Html.ActionLink("Área Adiministrativa", "IndexFunc", "Home", new { area = "" }, new { @class = "listanav" })</li>
                     }
 
-                    <div class="botao-login">
-                        <i class="fa-solid fa-user" id="login-icon"></i>
-                        @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "login" })
 
-                    </div>
+
+
+
+                    @if (Session["ClienteLogado"] != null)
+                    {
+                        <div class="botao-login">
+                            <i class='bx bx-exit' id="login-icon"></i>
+                            @Html.ActionLink("Logout", "Login", "Login/Logout", new { area = "" }, new { @class = "login" })
+                        </div>
+                        <li>   @Html.ActionLink(@Session["ClienteLogado"].ToString(), "DetalhesCliPet", "Cliente", new { area = "" }, new { @class = "listanav" })</li>
+                    }
+                    else
+                    {
+                        <div class="botao-login">
+                            <i class="fa-solid fa-user" id="login-icon"></i>
+                            @Html.ActionLink("Login", "Login", "Login", new { area = "" }, new { @class = "login" })
+                        </div>
+                    }
                 </ul>
+
+
+
             </div>
             <div class="darkLight-searchBox">
                 <div class="dark-light">
                     <i class="bx bx-moon moon"></i>
                     <i class="bx bx-sun sun"></i>
                 </div>
-                <div class="searchBox">
-                    <div class="searchToggle">
-                        <i class="bx bx-x cancel"></i>
-                        <i class="bx bx-search search"></i>
-                    </div>
-                    @using (Html.BeginForm("Buscar", "Home", FormMethod.Post))
-                    {
+                @using (Html.BeginForm("Buscar", "Home", FormMethod.Post))
+                {
+
+                    <div class="searchBox">
+                        <div class="searchToggle">
+                            <i class="bx bx-x cancel"></i>
+                            <i class="bx bx-search search"></i>
+                        </div>
                         <div class="search-field">
                             <input type="text" name="pesquisar" placeholder="Search...">
                             <i class="bx bx-search"></i>
                         </div>
-                    }
                     </div>
+                }
+
                 <!--Login-->
 
-
-                <div class="botao-carrinho">
-                    <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
-                </div>
-                <!-- Cart -->
-                <div class="cart">
-                    <h2 class="cart-title">Seu Carrinho</h2>
-                    <!-- Content -->
-                    <div class="cart-content">
-
+                <a href="/Carrinho/Carrinho/">
+                    <div class="botao-carrinho">
+                        <i class="fa-solid fa-cart-shopping" id="cart-icon"></i>
                     </div>
+                    </a>
+                    <!-- Cart -->
+                    <div class="cart">
+                        <h2 class="cart-title">Seu Carrinho</h2>
+                        <!-- Content -->
+                        <div class="cart-content">
 
-                    <!-- Total -->
-                    <div class="total">
-                        <div class="total-title">Total</div>
-                        <div class="total-price">R$0</div>
+                        </div>
+
+                        <!-- Total -->
+                        <div class="total">
+                            <div class="total-title">Total</div>
+                            <div class="total-price">R$0</div>
+                        </div>
+
+                        <!-- Buy Button -->
+                        @Html.ActionLink("Ir para o carrinho", "Carrinho", "Carrinho", new { area = "" }, new { @class = "btn-buy" })
+
+
+                        <!-- Cart Close -->
+                        <i class="bx bx-x" id="close-cart"></i>
                     </div>
-
-                    <!-- Buy Button -->
-                    @Html.ActionLink("Ir para o carrinho", "Carrinho", "Carrinho", new { area = "" }, new { @class = "btn-buy" })
-                   
-
-                    <!-- Cart Close -->
-                    <i class="bx bx-x" id="close-cart"></i>
-                </div>
-                <!-- Cart fIM  -->
+                    <!-- Cart fIM  -->
             </div>
-        </div>
-   
+            </div>
 
-     
+
+
     </nav>
- 
-           
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
 
+
+
+    @RenderBody()
+    <footer>
+        <!--content onde vão ficar todas informações-->
+        <div id="footer_content">
+
+            <!--contacts onde vão ficar todas informações de redes sociais e logo com slogan-->
+            <div id="footer_contacts">
+                <div class="logo-footer">
+                    <a href="/" class="logo-rodape"><img src="~/assets/images/logo-branca.svg" /></a>
+                </div>
+                <p class="contato">contato@4luck.com.br</p>
+                <p class="contato">(11) 98888-4242</p>
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram">
+                        <i class="fa-brands fa-instagram fa-2xl" style="color: #58f995;"></i>
+                    </a>
+
+                    <a href="#" class="footer-link" id="facebook">
+                        <i class="fa-brands fa-facebook fa-2xl" style="color: #58f995;"></i>
+                    </a>
+
+                    <a href="#" class="footer-link" id="whatsapp">
+                        <i class="fa-brands fa-whatsapp fa-2xl" style="color: #58f995;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- list onde vão ficar tudo de importante no footer-->
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Nossos Planos</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Plano Básico</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Plano Regular</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Plano Plus</a>
+                </li>
+            </ul>
+            <ul class="footer-list">
+                <li>
+                    <h3>Informações</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Institucional</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Politica de Privacidade</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Termos de Uso</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Contato</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">SAC</a>
+                </li>
+            </ul>
+        </div>
+        <!--copyright-->
+        <div id="footer_copyright">
+            &#169
+            2023 all rights reserved
+        </div>
+    </footer>
+    <script src="~/assets/js/header.js"></script>
+    <script src="~/assets/js/catalogo.js"></script>
+    <script src="~/assets/js/glider.js"></script>
+    <script src="~/assets/js/slides-produto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <script src="~/Scripts/chosen.jquery.js"></script>
 </body>
 </html>
+   
+
+
 
 

@@ -120,6 +120,7 @@ namespace bibliotecaDAO
                     email_func = retorno["email_func"].ToString(),
                     CPF_func = retorno["CPF_func"].ToString(),
                     tel_func = retorno["tel_func"].ToString(),
+                    senha_func = retorno["senha_func"].ToString(),
                     num_func = retorno["num_func"].ToString(),
                     cep_func = retorno["cep_func"].ToString(),
                     logradouro_func = retorno["logradouro_func"].ToString(),
@@ -165,9 +166,10 @@ namespace bibliotecaDAO
             strQuery += string.Format("CPF_func = '{0}',", funcionario.CPF_func);
             strQuery += string.Format("tel_func = '{0}',", funcionario.tel_func);
             strQuery += string.Format("num_func = '{0}',", funcionario.num_func);
+            strQuery += string.Format("senha_func = '{0}',", funcionario.senha_func);
             strQuery += string.Format("cep_func = '{0}',", funcionario.cep_func);
             strQuery += string.Format("logradouro_func = '{0}',", funcionario.logradouro_func);
-            strQuery += string.Format("nasc_func = STR_TO_DATE('{0}', '%d/%m/%Y %H :%i: %s')", funcionario.nasc_func);
+            strQuery += string.Format("nasc_func = '{0}'", funcionario.nasc_func);
 
             strQuery += string.Format("where id_func = '{0}'", funcionario.id_func);
 

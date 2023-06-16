@@ -20,7 +20,7 @@ namespace PlanosPets.Controllers
         {
             List<SelectListItem> cachorro = new List<SelectListItem>();
 
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=metranca789456123"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Raca where tipo_animal = 'cachorro'", con);
@@ -44,7 +44,7 @@ namespace PlanosPets.Controllers
         {
             List<SelectListItem> gato = new List<SelectListItem>();
 
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=metranca789456123"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Raca where tipo_animal = 'gato'", con);
@@ -132,8 +132,38 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Cadastrar(ModelCliente pets, HttpPostedFileBase file)
         {
-
+          
+                   
+            
+                 
+            ModelState.Remove("nome_cli");
+            ModelState.Remove("nasc_cli");
+            ModelState.Remove("email_cli");
+            ModelState.Remove("CPF_cli");
+            ModelState.Remove("cep_cli");
+            ModelState.Remove("num_cli");
+            ModelState.Remove("logradouro_cli");
+            ModelState.Remove("tel_cli");
+            ModelState.Remove("senha_cli");
+            ModelState.Remove("cidade");
+            ModelState.Remove("uf");
+            ModelState.Remove("bairro");
+            ModelState.Remove("Confirmar_senha");
+            if (!ModelState.IsValid)
+            {
+                CarregaRacaCachorro();
+                CarregaRacaGato();
+                return View(pets);
+            }
             PetDAO novapetsDAO = new PetDAO();
+            string RGA = new PetDAO().SelectRGA(pets.RGA);
+            if (RGA ==pets.RGA )
+            {
+                CarregaRacaCachorro();
+                CarregaRacaGato();
+                ViewBag.RGA = "RGA já cadastrado";
+                return View(pets);
+            }
             string Email = Session["ClienteLogado"] as string;
             string id = new PetDAO().SelectIdDoCli(Email);
             pets.id_cli = int.Parse(id);

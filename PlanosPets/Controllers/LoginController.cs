@@ -38,7 +38,7 @@ namespace PlanosPets.Controllers
 
             if (funcionario == null | funcionario.email_func != vielmodel.Email && cliente == null | cliente.email_cli != vielmodel.Email)
             {
-                ModelState.AddModelError("Email", "Email incorreta");
+                ModelState.AddModelError("Email", "Email incorreto");
                 return View(vielmodel);
             }
 
@@ -70,8 +70,7 @@ namespace PlanosPets.Controllers
         public ActionResult SemAcesso()
         {
             Response.Write("<script>alert('Sem acesso')</script>");
-            ViewBag.message = "Você não tem acesso a essa página";
-            return View();
+            return RedirectToAction("Login", "Login");
         }
         public ActionResult Logout()
         {

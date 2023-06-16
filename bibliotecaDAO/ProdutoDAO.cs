@@ -74,6 +74,26 @@ namespace bibliotecaDAO
             }
 
         }
+        public List<ModelProduto> ListarProdCat()
+        {
+            using (db = new Banco())
+            {
+                var strQuery = "SELECT Produto.*, Categorias.nome_categoria FROM Produto JOIN Categorias ON Produto.id_categoria = Categorias.id_categoria WHERE Categorias.nome_categoria LIKE '%gato%'; ";
+                var retorno = db.Retornar(strQuery);
+                return ListaDeProduto(retorno);
+            }
+
+        }
+        public List<ModelProduto> ListarProdDog()
+        {
+            using (db = new Banco())
+            {
+                var strQuery = "SELECT Produto.*, Categorias.nome_categoria FROM Produto JOIN Categorias ON Produto.id_categoria = Categorias.id_categoria WHERE Categorias.nome_categoria LIKE '%cachorro%'; ";
+                var retorno = db.Retornar(strQuery);
+                return ListaDeProduto(retorno);
+            }
+
+        }
         public List<ModelProduto> ListaDeProduto(MySqlDataReader retorno)
         {
             var produtos = new List<ModelProduto>();

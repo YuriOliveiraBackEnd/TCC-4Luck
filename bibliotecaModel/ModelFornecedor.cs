@@ -46,5 +46,15 @@ namespace bibliotecaModel
         [DisplayName("Código do produto")]
         [Required(ErrorMessage = "Insira o código  do produto")]
         public int id_prod { get; set; }
+
+        [DisplayName("bairro")]
+        [Required(ErrorMessage = "insira seu bairro")]
+        public string bairro { get; set; }
+        [DisplayName("cidade")]
+        [Required(ErrorMessage = "insira seu cidade")]
+        public string cidade { get; set; }
+        [DisplayName("uf")]
+        [Required(ErrorMessage = "insira seu uf")]
+        public string uf { get; set; }
     }
 }

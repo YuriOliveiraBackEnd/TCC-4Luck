@@ -3,95 +3,89 @@
 @{
     ViewBag.Title = "DetalhesdoFunc";
 }
+<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
 
-<h2>DetalhesdoFunc</h2>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <!--Titulo e Logo-->
+            <div class="info-cadastrar">
+                <h1 class="titulo">Detalhes</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
 
-<div>
-    <h4>ModelCliente</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.id_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.id_cli)
-        </dd>
+            <div class="itens-cadastro">
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nome_cli)
-        </dt>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.nome_cli, new { @class = "input", placeholder = "Nome" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome_cli)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email_cli)
-        </dd>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.email_cli, new { @class = "input", placeholder = "E-mail" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CPF_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CPF_cli)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cep_cli)
-        </dt>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.CPF_cli, new { @class = "input", placeholder = "CPF" })
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.cep_cli)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.num_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.num_cli)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.logradouro_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.logradouro_cli)
-        </dd>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.cep_cli, new { @id = "cep", @class = "input", placeholder = "CEP" })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.nasc_cli)
-        </dt>
+                </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.nasc_cli)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.senha_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.senha_cli)
-        </dd>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.logradouro_cli, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tel_cli)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tel_cli)
-        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Voltar", "Index", "Cliente")
-</p>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.num_cli, new { @class = "input", placeholder = "Número" })
+                </div>
+
+
+
+                <div class="form-group">
+
+                    @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento" })
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.tel_cli, new { @class = "input", placeholder = "Telefone" })
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </section>
+    </main>
+</body>
+</html>

@@ -96,6 +96,7 @@ namespace bibliotecaModel
         public string ft_pet { get; set; }
         [DisplayName("Data de nascimento")]
         [Required(ErrorMessage = "insira a data de nascimento do seu pet")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public string nasc_pet { get; set; }
 
         [DisplayName("RGA")]
@@ -105,6 +106,7 @@ namespace bibliotecaModel
         [DisplayName("Código raça")]
         public int id_raca { get; set; }
         public string id_gato { get; set; }
+
         public string id_cachorro { get; set; }
 
     }

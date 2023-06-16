@@ -14,6 +14,7 @@ namespace bibliotecaModel
 
         public string ProdutoID { get; set; }
         public string Produto { get; set; }
+        public string Foto_produto { get; set; }
         public string PedidoID { get; set; }
         public double valorUnit { get; set; }
         public double valorParcial { get; set; }

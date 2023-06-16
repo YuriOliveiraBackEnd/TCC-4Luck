@@ -41,7 +41,9 @@ namespace PlanosPets.Controllers
         public ActionResult Cadastrar(ModelFornecedor fornecedor)
         {
             if (!ModelState.IsValid)
+            {
                 return View(fornecedor);
+            }
             FornecedorDAO novoFornecedorDAO = new FornecedorDAO();
                 string cnpj = new FornecedorDAO().SelectCNPJFonc(fornecedor.CNPJ_forn);
                 string email = new FornecedorDAO().SelectEmailForn(fornecedor.email_forn);

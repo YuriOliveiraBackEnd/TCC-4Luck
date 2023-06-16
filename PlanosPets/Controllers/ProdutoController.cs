@@ -20,7 +20,7 @@ namespace PlanosPets.Controllers
 
 
 
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=metranca789456123"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Categorias", con);
@@ -69,6 +69,11 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Cadastrar(ModelProduto produto, HttpPostedFileBase file)
         {
+            if (!ModelState.IsValid)
+            {
+                CarregaCategoria();
+                return View(produto);
+            }
             var metodoProduto = new ProdutoDAO();
             string Email = Session["FuncLogado"] as string;
             string id = new ProdutoDAO().SelectIdDofunc(Email);
@@ -130,20 +135,35 @@ namespace PlanosPets.Controllers
 
 
         [HttpPost]
-        public ActionResult Atualizar(ModelProduto produto)
+        public ActionResult Atualizar(ModelProduto produto, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 var metodoproduto = new ProdutoDAO();
+
                 produto.tipo_cate = Request["categoria"];
                 if (produto.tipo_cate != "")
                 {
                     produto.id_categoria = int.Parse(produto.tipo_cate);
                 }
                 produto.id_categoria= produto.id_categoria;
+                file = Request.Files["file"];
+                if (file != null && file.ContentLength > 0)
+                {
+                    string arquivo = Path.GetFileName(file.FileName);
+
+                    string file2 = "/images/" + Path.GetFileName(file.FileName);
+
+                    string _path = Path.Combine(Server.MapPath("~/images"), arquivo);
+
+                    file.SaveAs(_path);
+
+                    produto.ft_prod = file2;
+                }
                 metodoproduto.UpdateProduto(produto);
                 return RedirectToAction("ListaProduto");
             }
+            CarregaCategoria();
             return View(produto);
         }
         public ActionResult ExcluirProd(int id)
@@ -174,13 +194,13 @@ namespace PlanosPets.Controllers
         public ActionResult ListarProdDog()
         {
             var metodoProduto = new ProdutoDAO();
-            var produto = metodoProduto.Listar();
+            var produto = metodoProduto.ListarProdDog();
             return View(produto);
         }
-        public ActionResult ListarProCat()
+        public ActionResult ListarProdCat()
         {
             var metodoProduto = new ProdutoDAO();
-            var produto = metodoProduto.Listar();
+            var produto = metodoProduto.ListarProdCat();
             return View(produto);
         }
     }

@@ -3,6 +3,7 @@ using bibliotecaModel;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +21,7 @@ namespace PlanosPets.Controllers
         {
             List<SelectListItem> cachorro = new List<SelectListItem>();
 
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=metranca789456123"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Raca where tipo_animal = 'cachorro'", con);
@@ -44,7 +45,7 @@ namespace PlanosPets.Controllers
         {
             List<SelectListItem> gato = new List<SelectListItem>();
 
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=cassali1"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Raca where tipo_animal = 'gato'", con);
@@ -167,7 +168,14 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Atualizar(ModelCliente cliente)
         {
-            if (!ModelState.IsValid)
+            ModelState.Remove("RGA");
+            ModelState.Remove("nome_pet");
+            ModelState.Remove("nasc_pet");
+            ModelState.Remove("uf");
+            ModelState.Remove("bairro");
+            ModelState.Remove("cidade");
+            ModelState.Remove("Confirmar_senha");
+            if (ModelState.IsValid)
             {
                 var metodoCliente = new ClienteDAO();
                 metodoCliente.UpdateCliente(cliente);
@@ -228,12 +236,20 @@ namespace PlanosPets.Controllers
         }
 
         public ActionResult ListarPet()
+     
         {
-            string Login = Session["ClienteLogado"] as string;
+            if (Session["ClienteLogado"] == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                string Login = Session["ClienteLogado"] as string;
 
-            var metodoPet = new PetDAO();
-            var listaPet = metodoPet.ListarPetCli(Login);
-            return View(listaPet);
+                var metodoPet = new PetDAO();
+                var listaPet = metodoPet.ListarPetCli(Login);
+                return View(listaPet);
+            }
 
         }
 
@@ -253,7 +269,7 @@ namespace PlanosPets.Controllers
         }
         //action que aciona o método de atualizar
         [HttpPost]
-        public ActionResult AtualizarPet(ModelCliente pets,int id)
+        public ActionResult AtualizarPet(ModelCliente pets,int id, HttpPostedFileBase file)
         {
             pets.id_gato = Request["gato"];
             if (pets.id_gato == "")
@@ -274,6 +290,19 @@ namespace PlanosPets.Controllers
             var metodoUsuario = new ClienteDAO();
             pets.id_raca = pets.id_raca;
             pets.id_pet = id;
+            file = Request.Files["file"];
+            if (file != null && file.ContentLength > 0)
+            {
+                string arquivo = Path.GetFileName(file.FileName);
+
+                string file2 = "/images/" + Path.GetFileName(file.FileName);
+
+                string _path = Path.Combine(Server.MapPath("~/images"), arquivo);
+
+                file.SaveAs(_path);
+
+                pets.ft_pet = file2;
+            }
             metodoUsuario.UpdatePet(pets);
             return RedirectToAction("ListarPet");
 

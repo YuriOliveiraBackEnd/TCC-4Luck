@@ -6,91 +6,74 @@
         Layout = "~/Views/Shared/_LayoutFunc.cshtml";
     }
 
+}
+
+<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        crossorigin="anonymous"></script>
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <div class="info-cadastrar">
+                <h1 id="cad-title2">Detalhes</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
+
+            <div class="itens-cadastro">
+                @Html.TextBoxFor(model => model.id_prod, new { @class = "input", placeholder = "ID" })
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.nome_prod, new { @class = "input", placeholder = "Nome" })
+                </div>
+
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.quant, new { @class = "input", placeholder = "E-mail" })
+                </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.valor_unitario, new { @class = "input", placeholder = "Telefone" })
+                </div>
+
+                <div id="input-date">
+                    @Html.TextBoxFor(model => model.ft_prod, new { @class = "input", placeholder = "Data de nascimento" })
+
+                </div>
+
+
+                @Html.TextBoxFor(model => model.id_func, new { @id = "cep", @class = "input", placeholder = "CEP" })
+
+
+                @Html.TextBoxFor(model => model.id_categoria, new { @id = "rua", @class = "input", placeholder = "Rua" })
+
+                <div id="desc-area">
+                    <h3>descrição:</h3>
+                    @Html.TextAreaFor(model => model.desc_prod, new { placeholder = "descrição...", style = "width: 358px; height: 125px;", @id = "descrição" });
+                </div>
+
+
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+</body>
+</html>
+
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
 
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Detalhes</title>
-</head>
-<body>
-    <div>
-        <h4>ModelProduto</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.id_prod)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.id_prod)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.nome_prod)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.nome_prod)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.valor_unitario)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.valor_unitario)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.quant)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.quant)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.desc_prod)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.desc_prod)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ft_prod)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ft_prod)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.id_categoria)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.id_categoria)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.id_func)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.id_func)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Atualizar", new { id = Model.id_prod }) |
-        @Html.ActionLink("Excluir", "ExcluirProd", new { id = Model.id_prod }, new { onclick = "return confirm('Deseja excluir?');" }) |
-        @Html.ActionLink("Voltar", "ListaProduto")
-    </p>
-</body>
-</html>

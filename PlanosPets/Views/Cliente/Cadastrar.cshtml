@@ -19,7 +19,7 @@
             @using (Html.BeginForm())
             {
                 <div class="itens-cadastro">
-                   
+
                     <div class="form-group">
                         @Html.TextBoxFor(model => model.nome_cli, new { @class = "input", placeholder = "Nome" })
                     </div>
@@ -30,7 +30,8 @@
                         @Html.TextBoxFor(model => model.email_cli, new { @class = "input", placeholder = "E-mail" })
                     </div>
                     @Html.ValidationMessageFor(model => model.email_cli, "", new { @class = "text-danger" })
-                    <p style="color:red;">@ViewBag.Email</p>
+                    <div class="text-danger">@ViewBag.Email</div>
+
 
 
 
@@ -40,7 +41,7 @@
                         @Html.TextBoxFor(model => model.CPF_cli, new { @class = "input", placeholder = "CPF" })
                     </div>
                     @Html.ValidationMessageFor(model => model.CPF_cli, "", new { @class = "text-danger" })
-                    <p style="color:red;">@ViewBag.CPF </p>
+                    <div class="text-danger">@ViewBag.CPF</div>
 
 
 
@@ -85,7 +86,7 @@
 
                     <div class="form-group">
 
-                        @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento" })
+                        @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento" ,@type ="date"})
                     </div>
                     @Html.ValidationMessageFor(model => model.nasc_cli, "", new { @class = "text-danger" })
 

@@ -1,41 +1,48 @@
 ﻿@model bibliotecaModel.ModelVenda
 
-@{
-    ViewBag.Title = "Carrinho";
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/assets/css/carrinho5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <main>
+        <h1 class="titulo-carrinho container-xl">Carrinho de compras</h1>
 
-<h2>Carrinho</h2>
+        <section>
+            @foreach (var item in Model.ItensPedido)
+            {
+                <div class="produto container-xl">
+                    <img class="img-produto" src="@item.Foto_produto" alt="">
+                    <h1 class="nome-produto ">@item.Produto</h1>
+                    <input class="" id="" min="1" max="50" value="@item.Qtd">
+                    <h2 class="preco-produto ">R$ @item.valorUnit</h2>
+                    <h2 class="preco-produto " hidden>Valor parcial @item.valorParcial</h2>
+                    <a href="/Carrinho/ExcluirItem/@item.ItemPedidoID">
+                        <i class="remover bx bxs-trash-alt cart-remove"> </i>
+                        </a>
+                </div>
+            }
 
-<table border="1">
-    <tr>
-        <td>Produto</td>
-        <td>Quantidade</td>
-        <td>Valor Unitário</td>
-        <td>Valor Total</td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+            </section>
+        <!-- Total -->
+        <div class="total-final container">
+            <div class="total-price">Total <span>R$@Model.ValorTotal</span> </div>
+        </div>
 
-    @foreach (var item in Model.ItensPedido)
-    {
+        <div class="botoes">
+            @Html.ActionLink("Ir para o pagamento", "SalvarCarrinho", "Carrinho", new { area = "" }, new { @class = "botao-pagamento" })
+     
+            @Html.ActionLink("Continuar Comprando", "Index", "Home", new { area = "" }, new {@class= "botao-produtos" })
+        </div>
 
-        <tr>
-            <td>@item.Produto</td>
-
-            <td><input type="number" value="@item.Qtd" /></td>
-            <td>@item.valorUnit</td>
-            <td>@item.valorParcial</td>
-            <td>@Html.ActionLink("Remover", "ExcluirItem", new { id = item.ItemPedidoID }, null)</td>
-        </tr>
-    }
-
-</table>
-
-<br />
-@Html.ActionLink("Continuar Comprando", "Index", "Home")
-
-<br />
-@Html.ActionLink("Finalizar Compra", "SalvarCarrinho", "Carrinho")
-
-<br /> Valor Total: @Model.ValorTotal
+    </main>
+</body>
+    </html>

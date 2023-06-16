@@ -103,7 +103,7 @@ namespace bibliotecaDAO
 
             using (db = new Banco())
             {
-                var strQuery = string.Format("Delete from Categoria where id_categoria = {0};", id);
+                var strQuery = string.Format("Delete from Categorias where id_categoria = {0};", id);
                 db.Executar(strQuery);
             }
 

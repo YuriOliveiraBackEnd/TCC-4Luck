@@ -87,7 +87,8 @@ namespace bibliotecaDAO
                     ft_pet = retorno["ft_pet"].ToString(),
                     RGA = retorno["RGA"].ToString(),
                     nasc_pet = retorno["nasc_pet"].ToString(),
-                    id_raca = int.Parse(retorno["id_raca"].ToString())
+                    id_raca = int.Parse(retorno["id_raca"].ToString()),
+                    id_cli = int.Parse(retorno["id_cli"].ToString()),
                 };
 
                 pets.Add(TempPets);

@@ -1,97 +1,76 @@
 ﻿@model bibliotecaModel.ModelCliente
 
-@{
-    ViewBag.Title = "AtualizarPet";
-}
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <h4>ModelCliente</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.nome_pet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome_pet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nome_pet, "", new { @class = "text-danger" })
+<link rel="stylesheet" href="~/assets/css/cadastrar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="scripts-forms" defer></script>
+<html>
+<body>
+    <main>
+        <section class="sec-cadastrar">
+            <div class="info-cadastrar">
+                <h1 id="cad-title3">Cadastre o Pet</h1>
+                <img src="./assets/images/logo-branca.svg" alt="">
             </div>
-        </div>
+            @using (Html.BeginForm("AtualizarPet", "Cliente", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="itens-cadastro">
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_pet, new { @class = "input", placeholder = "Nome do pet..." })
+                        @Html.ValidationMessageFor(model => model.nome_pet, "", new { @class = "text-danger" })
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ft_pet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ft_pet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ft_pet, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.RGA, new { @class = "input", placeholder = "RGA..." })
+                        @Html.ValidationMessageFor(model => model.RGA, "", new { @class = "text-danger" })
+                        <div class="text-danger">@ViewBag.RGA</div>
+                    </div>
+                    <div id="input-date">
+                        <div class="form-group">
+                            @Html.TextBoxFor(model => model.nasc_pet, new { @class = "input", placeholder = "Data de nascimento..." })
+                            @Html.ValidationMessageFor(model => model.nasc_pet, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+
+
+                    <div id="raca-pet">
+                        @Html.DropDownList("cachorro", "Raças cachorro")
+                    </div>
+
+                    <div id="raca-pet">
+                        @Html.DropDownList("gato", "Raças gato")
+                    </div>
+                    <div class="form-group">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.id_raca)
+                    </div>
+                    <div class="form-group">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ft_pet)
+                    </div>
+                </div>
+                <div id="sec-arquivo">
+                    <div id="file-pet">
+                        <label class="botao-arquivo" for="file">foto do Pet</label>
+                        <input type="file" name="file" id="file" />
+                    </div>
+                </div>
+
+                <div class="cadastra-bt">
+                    <input type="submit" value="Atualizar" class="botao-cadastrar" />
+                </div>
+
+            }
+
+            <div>
+                @Html.ActionLink("Voltar", "ListarPet", "Cliente", new { area = "" }, new { @class = "botao-cadastrar" })
             </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.nasc_pet, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nasc_pet, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nasc_pet, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RGA, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.RGA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.RGA, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.id_raca)
-        </div>
-        <br />
-        <div class="col-md-12">
-            @Html.DropDownList("cachorro", "Raças cachorro")
-        </div>
-
-        <br />
-        <div class="col-md-12">
-            @Html.DropDownList("gato", "Raças gato")
-        </div>
-
-        <br />
-
-
-
-        <br />
-
-        <br />
-
-        <div>
-
-            <label class="control-label col-md-2" for="file">Foto</label>
-
-        </div>
-
-        <div class="col-md-10">
-
-            <input type="file" name="file" id="file" /> <br />
-
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Atualizar" class="btn btn-default" />
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Voltar", "ListarPet", "Cliente")
-</div>
-
+        </section>
+    </main>
+</body>
+</html>
 @section Scripts{
     <script type="text/javascript">
         $(document).ready(function () {

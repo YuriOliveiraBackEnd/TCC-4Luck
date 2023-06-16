@@ -11,7 +11,10 @@
     <main>
 
         <section class="info-catalogo">
-            <h1 class="titulo-catalogo">Resultado da busca:</h1>
+            <h1 class="titulo-catalogo">Produtos para gatos</h1>
+            <p class="desc-catalogo">
+                Produtos para gatos dês de ração até brinquedos e pestiscos
+            </p>
         </section>
         <section class="shop container">
             <!-- Content -->
@@ -19,10 +22,8 @@
                 @foreach (var item in Model)
                 {
 
-
-
                     <!-- Box 1 -->
-                    <div class="product-box">
+                    <div class="product-box" >
                         <a href="/Home/Detalhes/@item.id_prod">
                             @if (@item.ft_prod != null)
                             {<img class="product-image" style="width: 266px; height: 280px;" src="@item.ft_prod" data-holder-rendered="true">}

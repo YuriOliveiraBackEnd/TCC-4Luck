@@ -4,116 +4,68 @@
     {
         Layout = "~/Views/Shared/_LayoutFunc.cshtml";
     }
-
-
 }
 
-
 <!DOCTYPE html>
-
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar</title>
+    <link rel="stylesheet" href="~/assets/css/cadastrar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="scripts-forms" defer></script>
 </head>
+
 <body>
-    @using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
+    <main>
 
-        <div class="form-horizontal">
-            <h4>ModelProduto</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.nome_prod, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.nome_prod, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.nome_prod, "", new { @class = "text-danger" })
-                </div>
+        <section class="sec-cadastrar">
+            <div class="info-cadastrar">
+                <h1 id="cad-title2">Cadastre o Produto</h1>
+                <img src="~/assets/images/logo-branca.svg" alt="">
             </div>
-
-
-
+            @using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+        <div class="itens-cadastro">
             <div class="form-group">
-                @Html.LabelFor(model => model.valor_unitario, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.valor_unitario, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.valor_unitario, "", new { @class = "text-danger" })
-                </div>
+                @Html.TextBoxFor(model => model.nome_prod, new { @class = "input", placeholder = "Nome do Produto..." })
             </div>
-
+            @Html.ValidationMessageFor(model => model.nome_prod, "", new { @class = "text-danger", style = "display:inline" })
             <div class="form-group">
-                @Html.LabelFor(model => model.quant, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.quant, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.quant, "", new { @class = "text-danger" })
-                </div>
+                @Html.TextBoxFor(model => model.quant, new { @class = "input", placeholder = "Quantidade..." })
             </div>
-
+            @Html.ValidationMessageFor(model => model.quant, "", new { @class = "text-danger", style = "display:inline" })
             <div class="form-group">
-                @Html.LabelFor(model => model.desc_prod, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.desc_prod, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.desc_prod, "", new { @class = "text-danger" })
-                </div>
+                @Html.TextBoxFor(model => model.valor_unitario, new { @class = "input", placeholder = "Preço..." })
             </div>
-
-
-
-            <br />
-            <div class="col-md-12">
+            @Html.ValidationMessageFor(model => model.valor_unitario, "", new { @class = "text-danger", style = "display:inline" })
+            <div id="raca-pet">
                 @Html.DropDownList("categoria", "Categorias")
             </div>
-
-            <br />
-
-            <br />
-
-
-
-
-
-            <div class="form-group center">
-
-                <div>
-
-                    <label class="control-label col-md-2" for="file">Foto</label>
-
-                </div>
-
-                <div class="col-md-10">
-
-                    <input type="file" name="file" id="file" /> <br />
-
-                </div>
-
+            <div id="desc-area">
+                <h3>descrição:</h3>
+                @Html.TextAreaFor(model => model.desc_prod, new { placeholder = "descrição...", style = "width: 358px; height: 125px;", @id = "descrição" })
             </div>
+            <div id="sec-arquivo">
 
-
-
-            <div class="form-group center">
-
-                <div class="col-md-10">
-
-                    @ViewBag.msg <br />
-
-                </div>
-
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Adicionar" class="btn btn-default" />
+                <div id="file-pet">
+                    <label class="botao-arquivo" for="file">foto </label>
+                    <input type="file" name="file" id="file" />
                 </div>
             </div>
         </div>
-    }
 
-<div>
-    @Html.ActionLink("Voltar", "ListaProduto")
-</div>
+            <div class="cadastra-bt">
+                <input type="submit" value="Cadastrar" class="botao-cadastrar " />
+            </div>
+            }
+</section>
+
+    </main>
+  
 </body>
 </html>
 @section Scripts{

@@ -198,15 +198,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\cadastrar.css" />
-    <Content Include="assets\css\carrinho.css" />
+    <Content Include="assets\css\carrinho5.css" />
     <Content Include="assets\css\catalogo.css" />
     <Content Include="assets\css\forma-pagamento.css" />
     <Content Include="assets\css\glider.css" />
-    <Content Include="assets\css\lista.css" />
+    <Content Include="assets\css\lista2.css" />
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\perfil-cliente.css" />
+    <Content Include="assets\css\perfil-pets3.css" />
     <Content Include="assets\css\produto.css" />
-    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style1.css" />
     <Content Include="assets\images\banner1.png" />
     <Content Include="assets\images\cachorro-sobre.png" />
     <Content Include="assets\images\categoria-cachorros-home.png" />
@@ -290,7 +291,6 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -419,7 +419,6 @@
     <Content Include="Views\Categoria\Cadastrar.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\Atualizar.cshtml" />
-    <Content Include="Views\Categoria\Detalhes.cshtml" />
     <Content Include="Views\Produto\Cadastrar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Produto\Atualizar.cshtml" />
@@ -427,7 +426,6 @@
     <Content Include="Views\Raca\Cadastrar.cshtml" />
     <Content Include="Views\Pets\Cadastrar.cshtml" />
     <Content Include="Views\Login\SemAcesso.cshtml" />
-    <Content Include="Views\Home\ListaRaca.cshtml" />
     <Content Include="Views\Raca\Index.cshtml" />
     <Content Include="Views\Funcionario\DetalhesEmail.cshtml" />
     <Content Include="Views\Cliente\DetalhesCliPet.cshtml" />
@@ -447,6 +445,8 @@
     <Content Include="Views\Cliente\Detalhes.cshtml" />
     <Content Include="Views\Home\ListarPlanos.cshtml" />
     <Content Include="Views\Cliente\DetalhesdoFunc.cshtml" />
+    <Content Include="Views\Produto\ListarProdCat.cshtml" />
+    <Content Include="Views\Produto\ListarProdDog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

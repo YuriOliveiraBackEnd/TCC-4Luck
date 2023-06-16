@@ -39,6 +39,8 @@ namespace PlanosPets.Controllers
                 itemPedido.Produto = produto[0].nome_prod;
                 itemPedido.Qtd = 1;
                 itemPedido.valorUnit = pre;
+                itemPedido.Foto_produto = produto[0].ft_prod;
+                
 
                 List<ModelItemCarrinho> x = carrinho.ItensPedido.FindAll(l => l.Produto == itemPedido.Produto);
 
@@ -117,7 +119,7 @@ namespace PlanosPets.Controllers
             venda.horaVenda = DateTime.Now.ToLocalTime().ToString("HH:mm");
             venda.id_cli = id;
             venda.ValorTotal = carrinho.ValorTotal;
-            venda.pagamento = x.pagamento;
+            venda.pagamento = "pix";
             acV.InsertVenda(venda);
 
             ModelItemCarrinho mdV = new ModelItemCarrinho();
@@ -131,7 +133,7 @@ namespace PlanosPets.Controllers
                 mdV.Qtd = carrinho.ItensPedido[i].Qtd;
                 mdV.valorParcial = carrinho.ItensPedido[i].valorParcial;
                 acI.inserirItem(mdV);
-                acI.BaixaEstoque();
+                //acI.BaixaEstoque();
             }
 
             carrinho.ValorTotal = 0;

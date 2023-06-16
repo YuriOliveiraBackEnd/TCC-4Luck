@@ -191,7 +191,8 @@ namespace bibliotecaDAO
                     cep_cli = retorno["CEP"].ToString(),
                     logradouro_cli = retorno["rua"].ToString(),
                     nasc_cli = retorno["nascimento"].ToString(),
-                    senha_cli = retorno["senha"].ToString()                };
+                    senha_cli = retorno["senha"].ToString()               
+                };
                 clientes.Add(TempCliente);
             }
 
