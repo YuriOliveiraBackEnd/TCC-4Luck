@@ -74,22 +74,30 @@ namespace PlanosPets.Controllers
                 CarregaCategoria();
                 return View(produto);
             }
+<<<<<<< Updated upstream
+=======
+         
+>>>>>>> Stashed changes
             var metodoProduto = new ProdutoDAO();
             string Email = Session["FuncLogado"] as string;
             string id = new ProdutoDAO().SelectIdDofunc(Email);
             produto.id_func = int.Parse(id);
 
-            string arquivo = Path.GetFileName(file.FileName);
+            file = Request.Files["file"];
+            if (file != null && file.ContentLength > 0)
+            {
+                string arquivo = Path.GetFileName(file.FileName);
 
-            string file2 = "/images/" + Path.GetFileName(file.FileName);
+                string file2 = "/images/" + Path.GetFileName(file.FileName);
 
-            string _path = Path.Combine(Server.MapPath("~/images"), arquivo);
+                string _path = Path.Combine(Server.MapPath("~/images"), arquivo);
 
-            file.SaveAs(_path);
+                file.SaveAs(_path);
 
-            produto.ft_prod = file2;
+                produto.ft_prod = file2;
+            }
 
-
+            produto.valor_unitario.ToString("0.00").Replace(".", ",");
 
             ModelProduto novoproduto = new ModelProduto()
             {
@@ -160,6 +168,10 @@ namespace PlanosPets.Controllers
 
                     produto.ft_prod = file2;
                 }
+<<<<<<< Updated upstream
+=======
+                produto.valor_unitario.ToString("0.00").Replace(".", ",");
+>>>>>>> Stashed changes
                 metodoproduto.UpdateProduto(produto);
                 return RedirectToAction("ListaProduto");
             }

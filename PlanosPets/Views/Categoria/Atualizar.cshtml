@@ -17,7 +17,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="~/assets/css/cadastrar.css">
+=======
+    <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
+    <link rel="stylesheet" href="~/assets/css/cadastrar1.css">
+>>>>>>> Stashed changes
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="scripts-forms" defer></script>
 
@@ -46,7 +51,11 @@
 
                     <div id="desc-area">
                         <h3 style="font-weight:bolder">descrição:</h3>
+<<<<<<< Updated upstream
                         @Html.TextAreaFor(model => model.desc_categoria, new { placeholder = "descrição...", style = "width: 358px; height: 125px;", @id = "descrição" });
+=======
+                        @Html.TextAreaFor(model => model.desc_categoria, new { placeholder = "descrição...", style = " resize: none", @id = "descrição" , cols = "30", rows = "4" });
+>>>>>>> Stashed changes
                         @Html.ValidationMessageFor(model => model.desc_categoria, "", new { @class = "text-danger" })
                     </div>
 

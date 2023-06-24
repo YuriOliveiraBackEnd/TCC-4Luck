@@ -138,7 +138,9 @@ namespace PlanosPets.Controllers
 
             carrinho.ValorTotal = 0;
             carrinho.ItensPedido.Clear();
-            return RedirectToAction("vendaRealizada");
+            TempData["AlertMessage"] = "Compra realizada com sucesso";
+
+            return RedirectToAction("Index","Home");
         }
         public ActionResult vendaRealizada()
         {

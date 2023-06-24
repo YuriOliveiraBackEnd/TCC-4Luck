@@ -42,8 +42,10 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Cadastrar(ModelRacas raca, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
+            {
                 return View(raca);
+            }
             RacaDAO novaRacaDAO = new RacaDAO();
             string nome = new RacaDAO().SelectNomeRaca(raca.nome_raca);
             if (nome == raca.nome_raca)

@@ -197,6 +197,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Content Include="assets\css\cadastrar.css" />
     <Content Include="assets\css\carrinho5.css" />
     <Content Include="assets\css\catalogo.css" />
@@ -208,6 +209,22 @@
     <Content Include="assets\css\perfil-pets3.css" />
     <Content Include="assets\css\produto.css" />
     <Content Include="assets\css\style1.css" />
+=======
+    <Content Include="assets\css\header-funcionario.css" />
+    <Content Include="assets\css\header-cliente1.css" />
+    <Content Include="assets\css\cadastrar1.css" />
+    <Content Include="assets\css\carrinho1.css" />
+    <Content Include="assets\css\catalogo3.css" />
+    <Content Include="assets\css\forma-pagamento1.css" />
+    <Content Include="assets\css\glider.css" />
+    <Content Include="assets\css\lista1.css" />
+    <Content Include="assets\css\login2.css" />
+    <Content Include="assets\css\perfil-cliente3.css" />
+    <Content Include="assets\css\perfil-pets3.css" />
+    <Content Include="assets\css\planos.css" />
+    <Content Include="assets\css\produto1.css" />
+    <Content Include="assets\css\style3.css" />
+>>>>>>> Stashed changes
     <Content Include="assets\images\banner1.png" />
     <Content Include="assets\images\cachorro-sobre.png" />
     <Content Include="assets\images\categoria-cachorros-home.png" />
@@ -225,7 +242,7 @@
     <Content Include="assets\js\glider.js" />
     <Content Include="assets\js\header.js" />
     <Content Include="assets\js\produto.js" />
-    <Content Include="assets\js\slides-produto.js" />
+    <Content Include="assets\js\slides-produto2.js" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />

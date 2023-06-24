@@ -1,55 +1,141 @@
-﻿
-@{
-    ViewBag.Title = "ListarPlanos";
-}
+﻿@model IEnumerable<bibliotecaModel.ModelProduto>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/assets/css/planos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="body">
 
-<h2>ListarPlanos</h2>
-
-@model IEnumerable<bibliotecaModel.ModelProduto>
+    <h2>ListarPlanos</h2>
 
 
-@{
-    ViewBag.Title = "ForLuck";
-}
-<div class="">
-    <div class="row center">
-        <div class="col-lg-9">
-            <div class="row">
-                @foreach (var item in Model)
-                {
-                    <div class="col-lg-3 col-md-6 mb-4" style="margin:2% 4%">
-                        <div class="card h-100">
-                            <a href="/Home/Detalhes/@item.id_prod">
-                                @if (@item.ft_prod != null)
-                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="@item.ft_prod" data-holder-rendered="true">}
-                                else
-                                {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
-                            </a>
-                            <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="@item.ft_prod">@item.nome_prod</a>
-                                </h4>
-                                <h5>R$ @item.valor_unitario</h5>
-                            </div>
-                            <div class="card-footer space-between-flex" style="width:90%">
-                                <div>
-                                    @Html.ActionLink("Descubra mais", "Detalhes", "Home", new { id = item.id_prod }, new { @class = "btn btn-default btn-acao" })
-                                </div>
-                                <div>
-                                    @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
-                                    {
-                                        <input type="hidden" name="id" value=@item.id_prod>
-                                        <input type="hidden" name="pre" value=@item.valor_unitario>
-                                        <input type="hidden" name="quantidade" value="1">
-                                        <button type="submit" class="btn btn-default btn-acao-primario">Comprar</button>
-                                    }
-                                </div>
-                            </div>
-                        </div>
+    <main>
+        <h1 class="titulo-nossos-planos">Nossos <span>Planos</span></h1>
+
+        <h3 class="titulo-para-caes">Para Cães</h3>
+        <section class="planos-caes">
+            @foreach (var item in Model.Take(3))
+            {
+
+                <div class="plano1-caes">
+                    <h1 class="titulo-plano-caes">@item.nome_prod <span>++</span> </h1>
+                    <div class="serviços-caes">
+                        <h4 class="detalhes-serviços-caes">Consultas Urgência ou Emergência</h4>
+                        <h4 class="detalhes-serviços-caes">Atendimento Ambulatorial</h4>
+                        <h4 class="detalhes-serviços-caes">Cirurgia</h4>
+                        <h4 class="detalhes-serviços-caes">Internação</h4>
+                        <h4 class="detalhes-serviços-caes">Exames de Imagem - Laboratorial</h4>
+                        <h4 class="detalhes-serviços-caes">Consulta de rotina</h4>
+                        <h4 class="detalhes-serviços-caes">Aplicação de vacinas</h4>
+                        <h4 class="detalhes-serviços-caes">Auxilio funeral</h4>
+                        <h4 class="detalhes-serviços-caes">Consulta especializada </h4>
+                        <h4 class="detalhes-serviços-caes">Castração</h4>
+                        <h4 class="detalhes-serviços-caes">Tartarectomia</h4>
+                        <h4 class="detalhes-serviços-caes">Transporte</h4>
+                        <h4 class="detalhes-serviços-caes">Hotelzinho (para viagens)</h4>
+                        <h4 class="detalhes-serviços-caes">Exames de Rotina</h4>
                     </div>
-                }
+                    <div class="precificacao">
+                        <h1 class="preco">R$ @item.valor_unitario</h1>
+                        <h1 class="mes-preco">/mês</h1>
+                    </div>
+                    @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                    {
+                        <input type="hidden" name="id" value=@item.id_prod>
+                        <input type="hidden" name="pre" value=@item.valor_unitario>
+                        <input type="hidden" name="quantidade" value="1">
+                        <button type="submit" class="botao-contratar">Contrate Agora</button>
+                    }
+
+                </div>
+
+            }
+        </section>
+
+
+        <h3 class="titulo-para-gatos">Para Gatos</h3>
+        <section class="planos-gatos">
+            @foreach (var item in Model.Take(3))
+            {
+
+                <div class="plano1-gatos">
+                    <h1 class="titulo-plano-gatos">@item.nome_prod <span>++</span> </h1>
+                    <div class="serviços-gatos">
+                        <h4 class="detalhes-serviços-gatos">Consultas Urgência ou Emergência</h4>
+                        <h4 class="detalhes-serviços-gatos">Atendimento Ambulatorial</h4>
+                        <h4 class="detalhes-serviços-gatos">Cirurgia</h4>
+                        <h4 class="detalhes-serviços-gatos">Internação</h4>
+                        <h4 class="detalhes-serviços-gatos">Exames de Imagem - Laboratorial</h4>
+                        <h4 class="detalhes-serviços-gatos">Consulta de rotina</h4>
+                        <h4 class="detalhes-serviços-gatos">Aplicação de vacinas</h4>
+                        <h4 class="detalhes-serviços-gatos">Auxilio funeral</h4>
+                        <h4 class="detalhes-serviços-gatos">Consulta especializada </h4>
+                        <h4 class="detalhes-serviços-gatos">Castração</h4>
+                        <h4 class="detalhes-serviços-gatos">Tartarectomia</h4>
+                        <h4 class="detalhes-serviços-gatos">Transporte</h4>
+                        <h4 class="detalhes-serviços-gatos">Hotelzinho (para viagens)</h4>
+                        <h4 class="detalhes-serviços-gatos">Exames de Rotina</h4>
+                    </div>
+                    <div class="precificacao">
+                        <h1 class="preco">R$@item.valor_unitario</h1>
+                        <h1 class="mes-preco">/mês</h1>
+                    </div>
+                    @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                    {
+                        <input type="hidden" name="id" value=@item.id_prod>
+                        <input type="hidden" name="pre" value=@item.valor_unitario>
+                        <input type="hidden" name="quantidade" value="1">
+                        <button type="submit" class="botao-contratar">Contrate Agora</button>
+                    }
+                </div>
+
+
+            }
+        </section>
+    </main>
+    </body>
+    @*<div class="">
+            <div class="row center">
+                <div class="col-lg-9">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 mb-4" style="margin:2% 4%">
+                                <div class="card h-100">
+                                    <a href="/Home/Detalhes/@item.id_prod">
+                                        @if (@item.ft_prod != null)
+                                        {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="@item.ft_prod" data-holder-rendered="true">}
+                                        else
+                                        {<img class="card-img-right flex-auto d-none d-md-block" data-src=" " alt="Thumbnail [300x300]" style="width: 300px; height: 300px;" src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
+                                    </a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="@item.ft_prod">@item.nome_prod</a>
+                                        </h4>
+                                        <h5>R$ @item.valor_unitario</h5>
+                                    </div>
+                                    <div class="card-footer space-between-flex" style="width:90%">
+                                        <div>
+                                            @Html.ActionLink("Descubra mais", "Detalhes", "Home", new { id = item.id_prod }, new { @class = "btn btn-default btn-acao" })
+                                        </div>
+                                        <div>
+                                            @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                                            {
+                                                <input type="hidden" name="id" value=@item.id_prod>
+                                                <input type="hidden" name="pre" value=@item.valor_unitario>
+                                                <input type="hidden" name="quantidade" value="1">
+                                                <button type="submit" class="btn btn-default btn-acao-primario">Comprar</button>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
+        </div>*@
 

@@ -3,11 +3,27 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<<<<<<< Updated upstream
 <link rel="stylesheet" href="~/assets/css/style1.css">
 <link rel="stylesheet" href="~/assets/css/glider.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 <body>
     <main>
+=======
+<link rel="stylesheet" href="~/assets/css/style3.css">
+<link rel="stylesheet" href="~/assets/css/header-cliente1.css">
+<link rel="stylesheet" href="~/assets/css/glider.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+<body class="body">
+    @if (TempData["AlertMessage"] != null)
+    {
+        <script>
+        var alertMessage = '@TempData["AlertMessage"]';
+        alert(alertMessage);
+        </script>
+    }
+    <main class="main">
+>>>>>>> Stashed changes
         <!--Slides de promoçao-->
         <section class="conta">
             <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -55,9 +71,15 @@
                 <!--Plano 1-->
                 <div class="plano">
                     <h1 class="titulo-plano">Plano Básico</h1>
+<<<<<<< Updated upstream
                     <img src="~/assets/images/gato-plano1.svg" alt="">
                     <h1 class="preco-plano">R$ 99,90 / mês</h1>
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <img src="~/assets/images/gato-plano3.svg" alt="">
+                    <h1 class="preco-plano">R$ 99,90 / mês</h1>
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr>
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -66,7 +88,11 @@
                     <h1 class="titulo-plano">Plano Regular</h1>
                     <img src="~/assets/images/gato-plano2.svg" alt="">
                     <h1 class="preco-plano">R$ 159,90 / mês</h1>
+<<<<<<< Updated upstream
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr>
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -75,7 +101,11 @@
                     <h1 class="titulo-plano">Plano Plus</h1>
                     <img src="~/assets/images/gato-plano3.svg" alt="">
                     <h1 class="preco-plano">R$ 199,90 / mês</h1>
+<<<<<<< Updated upstream
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr class="linha">
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -84,15 +114,25 @@
 
         <section class="sec-planos-cat">
             <!--Titulo do Plano-->
+<<<<<<< Updated upstream
             <h1 class="titulo-planos-cat">Planos Dog</h1>
+=======
+            <h1 class="titulo-planos-cat">Planos Cat</h1>
+>>>>>>> Stashed changes
             <!--Container do Plano-->
             <div class="planos-cat">
                 <!--Plano 1-->
                 <div class="plano">
                     <h1 class="titulo-plano">Plano Básico</h1>
+<<<<<<< Updated upstream
                     <img src="~/assets/images/gato-plano1.svg" alt="">
                     <h1 class="preco-plano">R$ 99,90 / mês</h1>
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <img src="~/assets/images/gato-plano3.svg" alt="">
+                    <h1 class="preco-plano">R$ 99,90 / mês</h1>
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr>
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -101,7 +141,11 @@
                     <h1 class="titulo-plano">Plano Regular</h1>
                     <img src="~/assets/images/gato-plano2.svg" alt="">
                     <h1 class="preco-plano">R$ 159,90 / mês</h1>
+<<<<<<< Updated upstream
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr>
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -110,7 +154,11 @@
                     <h1 class="titulo-plano">Plano Plus</h1>
                     <img src="~/assets/images/gato-plano3.svg" alt="">
                     <h1 class="preco-plano">R$ 199,90 / mês</h1>
+<<<<<<< Updated upstream
                     <a class="botao-planos" href="#">Contratar Agora</a>
+=======
+                    <a class="botao-planos" href="/Home/ListarPlanos/">Contratar Agora</a>
+>>>>>>> Stashed changes
                     <hr class="linha">
                     <p class="ver-mais-plano">ver mais</p>
                 </div>
@@ -128,11 +176,16 @@
         <!--Slides-->
         <section class="slides">
             <!--Titulo da categoria-->
+<<<<<<< Updated upstream
             <h3 class="titulo-categoria-produto">Rações</h3>
+=======
+            <h3 class="titulo-categoria-produto">Nossos Produtos</h3>
+>>>>>>> Stashed changes
 
             <div class="glider-contain">
                 <div class="glider">
                     <!-- Box 1 -->
+<<<<<<< Updated upstream
                     <div class="product-box">
                         <img src="~/assets/images/racao.png" alt="" class="product-image">
                         <h2 class="product-title">Ração Seca Nutrilus Pro+ Frango & Carne para Cães Adultos</h2>
@@ -181,6 +234,36 @@
                     </div>
                     <!--Fim Product Box-->
 
+=======
+                    @foreach (var item in Model)
+                    {
+                        <!-- Box 1 -->
+                        <div class="product-box">
+                            <a href="/Home/Detalhes/@item.id_prod">
+                                @if (@item.ft_prod != null)
+                                {<img class="product-image" src="@item.ft_prod" data-holder-rendered="true" style="width:auto; height:300px" >}
+                                else
+                                {<img class="product-image" src="~/Images/image-not-found.jpg" data-holder-rendered="true">}
+                            </a>
+                            <h2 class="product-title">@item.desc_prod</h2>
+                            <span class="price">R$ @item.valor_unitario</span>
+                            @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                            {
+                                <input type="hidden" name="id" value=@item.id_prod>
+                                <input type="hidden" name="pre" value=@item.valor_unitario>
+                                <input type="hidden" name="quantidade" value="1">
+                                <div class="botao-add-cart">
+                                    <button type="submit" class="add-cart">Adicionar ao carrinho</button>
+                                </div>
+                            }
+
+                        </div>
+                    }
+
+                    <!--Fim Product Box-->
+
+
+>>>>>>> Stashed changes
                 </div>
                 <button aria-label="Previous" class="glider-prev">«</button>
                 <button aria-label="Next" class="glider-next">»</button>
@@ -188,6 +271,7 @@
         </section>
 
         <!--Slides-->
+<<<<<<< Updated upstream
         <section class="slides">
             <!--Titulo da categoria-->
             <h3 class="titulo-categoria-produto">Rações</h3>
@@ -309,12 +393,18 @@
             </div>
         </section>
 
+=======
+>>>>>>> Stashed changes
         <!--Avaliação-->
         <section class="avaliacao-cliente">
             <h1 class="titulo-avaliacao">Depoimentos</h1>
 
             <div class="glider-contain">
+<<<<<<< Updated upstream
                 <div class="glider4">
+=======
+                <div class="glider2">
+>>>>>>> Stashed changes
                     <div class="avaliacao">
                         <p class="opiniao-cliente">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
@@ -439,9 +529,15 @@
 
         <section class="perguntas-frequentes">
             <h1 class="titulo-perguntas-frequentes">Perguntas Frequentes</h1>
+<<<<<<< Updated upstream
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header">
+=======
+            <div class="accordion accordion-flush " id="accordionFlushExample">
+                <div class="accordion-item frequente">
+                    <h2 class="accordion-header frequente">
+>>>>>>> Stashed changes
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             Por que usar o 4Luck?
                         </button>
@@ -450,7 +546,11 @@
                         <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
                     </div>
                 </div>
+<<<<<<< Updated upstream
                 <div class="accordion-item">
+=======
+                <div class="accordion-item frequente">
+>>>>>>> Stashed changes
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                             Por que usar o 4Luck?
@@ -460,7 +560,11 @@
                         <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
                     </div>
                 </div>
+<<<<<<< Updated upstream
                 <div class="accordion-item">
+=======
+                <div class="accordion-item frequente">
+>>>>>>> Stashed changes
                     <h2 class="accordion-header">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                             Por que usar o 4Luck?
@@ -493,7 +597,11 @@
 
     </main>
 
+<<<<<<< Updated upstream
     </body>
+=======
+</body>
+>>>>>>> Stashed changes
 
 
 

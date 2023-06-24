@@ -11,13 +11,11 @@ namespace bibliotecaModel
     public class ModelRacas
     {
         [DisplayName("Código da raça")]
-        [Required(ErrorMessage = "insira a descrição do produto ")]
         public int id_raca { get; set; }
         [DisplayName("Nome da raça")]
-        [Required(ErrorMessage = "insira a descrição do produto ")]
+        [Required(ErrorMessage = "insira o nome da raça ")]
         public string nome_raca { get; set; }
         [DisplayName("Foto da raça")]
-        [Required(ErrorMessage = "insira a descrição do produto ")]
         public string ft_raca { get; set; }
         
         [DisplayName("Tipo animal")]

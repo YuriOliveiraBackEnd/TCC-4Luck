@@ -24,7 +24,7 @@ namespace bibliotecaDAO
         {
             conexao.Open();
             comand.CommandText = "call InsertProduto(@nome_prod,@valor_unitario, @quant, @desc_prod, @ft_prod, @id_func,@id_categoria);";
-            comand.Parameters.Add("@valor_unitario", MySqlDbType.VarChar).Value = produto.valor_unitario;
+            comand.Parameters.Add("@valor_unitario", MySqlDbType.Double).Value = produto.valor_unitario;
             comand.Parameters.Add("@nome_prod", MySqlDbType.VarChar).Value = produto.nome_prod;
             comand.Parameters.Add("@quant", MySqlDbType.VarChar).Value = produto.quant;
             comand.Parameters.Add("@desc_prod", MySqlDbType.VarChar).Value = produto.desc_prod;
@@ -68,7 +68,27 @@ namespace bibliotecaDAO
         {
             using (db = new Banco())
             {
-                var strQuery = "Select * from Produto where id_categoria = 1;";
+                var strQuery = "SELECT Produto.*, Categorias.nome_categoria FROM Produto JOIN Categorias ON Produto.id_categoria = Categorias.id_categoria WHERE Categorias.nome_categoria LIKE '%plano%'; ";
+                var retorno = db.Retornar(strQuery);
+                return ListaDeProduto(retorno);
+            }
+
+        }
+        public List<ModelProduto> ListarProdCat()
+        {
+            using (db = new Banco())
+            {
+                var strQuery = "SELECT Produto.*, Categorias.nome_categoria FROM Produto JOIN Categorias ON Produto.id_categoria = Categorias.id_categoria WHERE Categorias.nome_categoria LIKE '%gato%'; ";
+                var retorno = db.Retornar(strQuery);
+                return ListaDeProduto(retorno);
+            }
+
+        }
+        public List<ModelProduto> ListarProdDog()
+        {
+            using (db = new Banco())
+            {
+                var strQuery = "SELECT Produto.*, Categorias.nome_categoria FROM Produto JOIN Categorias ON Produto.id_categoria = Categorias.id_categoria WHERE Categorias.nome_categoria LIKE '%cachorro%'; ";
                 var retorno = db.Retornar(strQuery);
                 return ListaDeProduto(retorno);
             }
@@ -167,27 +187,30 @@ namespace bibliotecaDAO
 
         public void UpdateProduto(ModelProduto produto)
         {
-           
-                var strQuery = "";
-                strQuery += "Update produto set ";
-                strQuery += string.Format("nome_prod = '{0}',", produto.nome_prod);
-                strQuery += string.Format("valor_unitario= '{0}', ", produto.valor_unitario);
-                strQuery += string.Format("quant = '{0}',", produto.quant);
-                strQuery += string.Format("desc_prod = '{0}',", produto.desc_prod);
-                strQuery += string.Format("id_categoria = '{0}',", produto.id_categoria);
-                strQuery += string.Format("ft_prod = '{0}',", produto.ft_prod);
-                strQuery += string.Format("id_func = '{0}'", produto.id_func);
-      
-                strQuery += string.Format("where id_prod = '{0}'", produto.id_prod);
+            conexao.Open();
+            MySqlCommand cmd = new MySqlCommand("update produto set valor_unitario=@valor_unitario, nome_prod=@nome_prod, quant=@quant,desc_prod=@desc_prod,id_categoria=@id_categoria,ft_prod=@ft_prod,id_func=@id_func  WHERE id_prod =@id_prod");
 
 
+            cmd.Parameters.AddWithValue("@valor_unitario", produto.valor_unitario);
 
-            using (db = new Banco())
-                {
-                    db.Executar(strQuery);
-                }
+            cmd.Parameters.AddWithValue("@nome_prod", produto.nome_prod);
 
-            
+            cmd.Parameters.AddWithValue("@quant", produto.quant);
+
+            cmd.Parameters.AddWithValue("@desc_prod", produto.desc_prod);
+
+            cmd.Parameters.AddWithValue("@id_categoria", produto.id_categoria);
+
+            cmd.Parameters.AddWithValue("@ft_prod", produto.ft_prod);
+
+            cmd.Parameters.AddWithValue("@id_func", produto.id_func);
+
+            cmd.Parameters.AddWithValue("@id_prod", produto.id_prod);
+
+            cmd.Connection = conexao;
+            cmd.ExecuteNonQuery();
+            conexao.Close();
+
         }
 
         public void DeleteProd(int id)

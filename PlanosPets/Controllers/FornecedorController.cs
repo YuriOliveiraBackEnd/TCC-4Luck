@@ -111,6 +111,9 @@ namespace PlanosPets.Controllers
         [HttpPost]
         public ActionResult Atualizar(ModelFornecedor fornecedor)
         {
+            ModelState.Remove("uf");
+            ModelState.Remove("bairro");
+            ModelState.Remove("cidade");
             if (ModelState.IsValid)
             {
                 var metodoFornecedor = new FornecedorDAO();

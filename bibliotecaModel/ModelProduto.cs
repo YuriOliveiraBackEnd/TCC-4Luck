@@ -20,7 +20,7 @@ namespace bibliotecaModel
         [Required(ErrorMessage = "insira o preço do produto")]
         public double valor_unitario { get; set; }
         [DisplayName("Quantidade")]
-        [Required(ErrorMessage = "insira sua senha")]
+        [Required(ErrorMessage = "insira a quantidade")]
         public int quant { get; set; }
         [DisplayName("Descrição do produto")]
         [Required(ErrorMessage = "insira a descrição do produto ")]

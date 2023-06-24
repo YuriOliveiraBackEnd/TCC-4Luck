@@ -72,6 +72,11 @@ nav .nav-bar .sidebarOpen{
     display: none;
 }
 
+.logo-sidebar{
+    width: 70px;
+    height: auto;
+}
+
 .menu .logo-toggle{
     display: none;
 }
@@ -244,7 +249,7 @@ body.dark .search-field i{
     z-index: 1000;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -200%;
     width: 360px;
     min-height: 100vh;
     padding: 20px;
@@ -351,279 +356,287 @@ body.dark .search-field i{
     top: 1rem;
     right: 0.8rem;
     font-size: 2rem;
-    color: var(--text-color);
+    color: var(--roxo-primario);
     cursor: pointer;
 }
 /*Fim Carrinho */
 /*Fim Header */
 
-main{
-    margin-top: 7rem;
+/*inicio header reponsividade*/
+@media(max-width: 790px){
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        background-color: var(--side-nav);
+        padding: 20px;
+        z-index: 100;
+        transition: all .4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 60px;
+    }
+    .nav-links li a{
+        display: block;
+        margin-top: 30px;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items:center ;
+        justify-content: space-between;
+    }
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
 }
 
-.info-catalogo{
-    margin: 0 10%;
+/*fim header reponsividade*/
+
+
+.body{
+    background-image: url(/assets/images/background-patas.png);
+    background-repeat: repeat;
+    background-size: 150vh;
 }
 
-.titulo-catalogo{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    
+
+
+.titulo-nossos-planos{
+    margin-top: 6rem;
+    color: #9b38ff;
+    margin-left: 6rem;
+    margin-bottom: 2rem;
+    font-family: 'Changa One';
+    font-weight: 400;
+    font-size: 50px
 }
 
-.desc-catalogo{
-    display: flex;
-    align-items: center;
-    justify-content: left;
+.titulo-nossos-planos span{
+    color: #00EB4E;
+    font-family: 'Changa One';
+    font-weight: 400;
+    font-size: 50px
+}
+
+.titulo-para-caes{
+    color:var(--verde-primario);
+    text-align: center;
+    font-size: 35px;
     margin-bottom: 2rem;
 }
 
-.breadcrumb{
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    margin: 2rem 15%;
 
-    
-}
-
-.breadcrumb-item{
-    color: #000000;
-    text-decoration: none;
-}
-
-.breadcrumb-item active{
-    color: #6100C2  ;
-}
-
-
-
-
-/*Lista de Produtos*/
-.section-title{
-    font-size: 1.5rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.shop{
-    margin-top: 2rem;
-}
-
-/* Shop Content */
-.shop-content{
+/*Inicio Plano de caes*/
+.planos-caes{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,auto));
+    grid-template-columns: 33% 33% 33%;
     gap: 1.5rem;
+    margin: 1rem 6rem;
 }
 
-.product-box{
-    position: relative;
-    background: #f1f1f1;
-    padding: 25px 15px 5px 15px;
-    border-radius: 10px;
-    border: 1px solid #c0c0c0;
-}
 
-.product-box:hover{
-    padding: 15px 20px 5px 20px;
-    border: 1px solid #474747;
-    transition: 0.4s;
-}
-
-.product-img{
-    width: 100%;
-    height: auto;
-    margin-bottom: 0.5rem;
-}
-
-.product-title{
-    font-size: 1rem;
-    margin-top: .8rem;
-    margin-left: 1rem;
-    font-weight: 300;
-    color: #2c2c2c;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-}
-
-.price{
+.plano1-caes{
     display: flex;
     justify-content: center;
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-align: center;
+    flex-direction: column;
+    background-color: #8163D8;
     align-items: center;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 2px solid var(--roxo-primario);
 }
 
-.add-cart{
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--roxo-primario);
-    color: var(--botao-header);
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    margin-top: 1.5rem
-}
-
-.add-cart:hover{
-    background: hsl(273, 90%, 23%);
-}
-/*Fim Lista de Produtos*/
-
-@media (max-width: 400px){
-    .cart{
-        width: 320px;
-    }
-}
-
-@media (max-width: 360px){
-    .cart{
-        width: 280px;
-    }
-}
-
-
-/*footer*/
-footer {
-    margin-top: 5rem;
-    width: 100%;
-    color: var(--botao-header);
-    background-color: #684BBD;
-}
-
-.footer-link {
-    text-decoration: none;
-}
-
-#footer_content {
-    border-top: 10vh;
-    border-color: aliceblue;
-    background-color: var(--color-neutral-10);
-    display: flex;
-    justify-content: center;
-    gap: 10rem;
-    padding: 3rem 3.5rem;
-    grid-template-columns: repeat(4, 1fr);
-}
-.logo-rodape{
-    width: 4rem;
-    padding: 3rem 3.5rem;
-}
-
-.contato{
-    padding: 0rem 3.5rem;
-    font-weight: 600;
-    margin-top: 1rem;
-}
-
-#footer_contacts h1 {
-    margin-bottom: 0.75rem;
-}
-
-#footer_social_media {
-    display: flex;
-    gap: 1rem;
+.titulo-plano-caes{
+    color: var(--verde-primario);
+    margin-bottom: 1.5rem;
     margin-top: 1.5rem;
-    margin-left: 3rem;
-    size: 4rem;
+    font-size: 30px;
 }
 
-#footer_social_media .footer-link {
+.titulo-plano-caes span{
+    color: #6a22b1;
+}
+
+.serviços-caes{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.detalhes-serviços-caes{
+    padding-bottom: 13px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.precificacao{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    height: 2.5rem;
-    width: 2.5rem;
-    color: var(--color-neutral-40);
-    border-radius: 50%;
-    transition: all 0.4s;
+    align-items: center;
 }
 
-.footer-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    list-style: none;
+.preco{
+    color: var(--text-color);
+    font-family: 'Changa One';
+    font-weight: 300;
+    font-size: 33px;
 }
 
-.footer-list .footer-link {
-    color: var(--color-neutral-30);
-    transition: all 0.4s;
+.mes-preco{
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 400;
 }
 
-.footer-list .footer-link:hover {
-    color: #98f57c;
+.botao-contratar{
+    margin-top: 2rem;
+    padding: 8px 25px;
+    background-color: #6100C2;
+    color: var(--text-color);
+    border-radius: 10px;
+    margin-bottom: 1rem
 }
+/*Fim Plano de caes*/
 
-#footer_subscribe {
-    display: flex;
-    flex-direction: column;
+/*Inicio Plano de gatos*/
+.planos-gatos{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
     gap: 1.5rem;
+    margin: 1rem 6rem;
 }
 
-#footer_subscribe p {
-    color: var(--color-neutral-30);
+
+.titulo-para-gatos{
+    color:var(--verde-primario);
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
 }
 
-#input_group {
-    display: flex;
-    align-items: center;
-    background-color: var(--color-neutral-0);
-    border-radius: 4px;
-}
 
-#input_group input {
-    all: unset;
-    padding: 0.75rem;
-    width: 100%;
-}
-
-#input_group button {
-    background-color: #a6e768;
-    border: none;
-    color: var(--color-neutral-40);
-    padding: 0px 1.25rem;
-    font-size: 1.125rem;
-    height: 100%;
-    border-radius: 0px 4px 4px 0px;
-    cursor: pointer;
-    transition: all 0.4s;
-}
-
-#input_group button:hover {
-    opacity: 0.8;
-}
-
-#footer_copyright {
+.plano1-gatos{
     display: flex;
     justify-content: center;
-    background-color: var(--roxo-primario);
-    font-size: 0.9rem;
-    padding: 0.4rem;
-    font-weight: 100;
+    flex-direction: column;
+    background-color: #16b34a;
+    align-items: center;
+    padding: 20px 30px;
+    border-radius: 20px;
+    border: 2px solid var(--roxo-primario);
 }
 
-/*inicio reponsividade do footer*/
-@media screen and (max-width: 968px) {
-    #footer_content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
+.titulo-plano-gatos{
+    color: #502081;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 30px;
 }
 
-@media screen and (max-width: 826px) {
-    #footer_content {
+.titulo-plano-gatos span{
+    color: #08f72f;
+}
+
+.serviços-gatos{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.detalhes-serviços-gatos{
+    padding-bottom: 6px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+/*Fim Plano de gatos*/
+
+
+
+@media(max-width:1220px){
+    .planos-caes{
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        gap: 1.5rem;
+        margin: 1rem 6rem;
+    } 
+    .planos-gatos{
+        display: grid;
+        grid-template-columns: 50% 50% ;
+        gap: 1.5rem;
+        margin: 1rem 6rem;
+    } 
+}
+
+@media(max-width:830px){
+    .planos-caes{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: left;
+        margin: 1rem 10rem;
+    }
+    .planos-gatos{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 10rem;
+    }
+
+}
+
+@media(max-width:650px){
+    .planos-caes{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 5rem;
+    }
+    .planos-gatos{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 5rem;
+    }
+
+}
+
+@media(max-width:480px){
+    .planos-caes{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 2rem;
+    }
+    .planos-gatos{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 2rem;
     }
 }
-/*fim reponsividade do footer*/
+
+@media(max-width:380px){
+    .planos-caes{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 1rem;
+    }
+    .planos-gatos{
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 1rem;
+    }
+
+
+}
