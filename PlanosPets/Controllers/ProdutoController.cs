@@ -165,10 +165,9 @@ namespace PlanosPets.Controllers
 
                     produto.ft_prod = file2;
                 }
-<<<<<<< Updated upstream
-=======
+
                 produto.valor_unitario.ToString("0.00").Replace(".", ",");
->>>>>>> Stashed changes
+
                 metodoproduto.UpdateProduto(produto);
                 return RedirectToAction("ListaProduto");
             }

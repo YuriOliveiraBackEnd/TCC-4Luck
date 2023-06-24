@@ -1,6 +1,6 @@
 ﻿@model bibliotecaModel.ModelCliente
- <link href="~/assets/css/cadastrar1.css" rel="stylesheet"/>
- <link rel="stylesheet" href="~/assets/css/header-cliente.css">
+<link href="~/assets/css/cadastrar1.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/assets/css/header-cliente.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -86,7 +86,7 @@
 
                     <div class="form-group">
 
-                        @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento" ,@type ="date"})
+                        @Html.TextBoxFor(model => model.nasc_cli, new { @class = "input", placeholder = "Data de nascimento", @type = "date" })
                     </div>
                     @Html.ValidationMessageFor(model => model.nasc_cli, "", new { @class = "text-danger" })
 
@@ -121,10 +121,10 @@
 
 
 
-                            <input type="submit" value="Cadastrar" class="botao-cadastrar " />
-                            }
+                <input type="submit" value="Cadastrar" class="botao-cadastrar " />
+            }
 
-</section>
+        </section>
     </main>
 </body>
 </html>

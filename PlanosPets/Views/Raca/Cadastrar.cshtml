@@ -13,12 +13,8 @@
 
 
 <title>Cadastrar</title>
-<<<<<<< Updated upstream
-<link rel="stylesheet" href="~/assets/css/cadastrar.css">
-=======
 <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
 <link rel="stylesheet" href="~/assets/css/cadastrar1.css">
->>>>>>> Stashed changes
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="scripts-forms" defer></script>
 <html>
@@ -36,19 +32,16 @@
                     <div class="form-group">
                         @Html.TextBoxFor(model => model.nome_raca, new { @class = "input", placeholder = "Nome da raça..." })
                         @Html.ValidationMessageFor(model => model.nome_raca, "", new { @class = "text-danger" })
-<<<<<<< Updated upstream
-=======
                         <div class="text-danger">@ViewBag.Raca</div>
->>>>>>> Stashed changes
                     </div>
 
                     <div class="form-group">
                         @Html.TextBoxFor(model => model.tipo_animal, new { @class = "input", placeholder = "Tipo animal..." })
                         @Html.ValidationMessageFor(model => model.tipo_animal, "", new { @class = "text-danger" })
-                       
+
                     </div>
-                
-            
+
+
                 </div>
                 <div id="sec-arquivo">
                     <div id="file-pet">

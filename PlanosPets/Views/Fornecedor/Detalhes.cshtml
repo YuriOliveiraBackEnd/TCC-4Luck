@@ -7,28 +7,6 @@
     }
 
 }
-<<<<<<< Updated upstream
-<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-        crossorigin="anonymous"></script>
-@Scripts.Render("~/Scripts/cep.js")
-<html>
-<body>
-    <main>
-        <section class="sec-cadastrar">
-            <!--Titulo e Logo-->
-            <div class="info-cadastrar">
-                <h1 class="titulo">detalhes</h1>
-                <img src="~/assets/images/logo-branca.svg" alt="">
-            </div>
-
-         
-                <div class="itens-cadastro">
-
-=======
 <link href="~/assets/css/cadastrar1.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -46,81 +24,80 @@
                 <img src="~/assets/images/logo-branca.svg" alt="">
             </div>
 
-         
-                <div class="itens-cadastro">
 
->>>>>>> Stashed changes
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.id_forn, new { @class = "input", placeholder = "Id" })
-                    </div>
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.nome_forn, new { @class = "input", placeholder = "Nome" })
-                    </div>
+            <div class="itens-cadastro">
 
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.id_forn, new { @class = "input", placeholder = "Id" })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.nome_forn, new { @class = "input", placeholder = "Nome" })
+                </div>
 
 
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.email_forn, new { @class = "input", placeholder = "E-mail" })
-                    </div>
 
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.email_forn, new { @class = "input", placeholder = "E-mail" })
+                </div>
 
 
 
 
 
 
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.CNPJ_forn, new { @class = "input", placeholder = "CNPJ" })
-                    </div>
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.CNPJ_forn, new { @class = "input", placeholder = "CNPJ" })
+                </div>
 
 
 
 
 
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.cep_forn, new { @id = "cep", @class = "input", placeholder = "CEP" })
-
-                    </div>
-
-
-
-                
-
-
-
-
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.logradouro_forn, new { @id = "rua", @class = "input", placeholder = "Rua" })
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.num_forn, new { @class = "input", placeholder = "Número" })
-                    </div>
-
-
-
-                    <div class="form-group">
-
-                        @Html.TextBoxFor(model => model.tel_forn, new { @class = "input", placeholder = "Telefone" })
-                    </div>
-
-
-
-
-
-
-                    <div class="form-group">
-                        @Html.TextBoxFor(model => model.id_prod, new { @class = "input", placeholder = "id do produto" })
-                    </div>
-
-
-
-
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.cep_forn, new { @id = "cep", @class = "input", placeholder = "CEP" })
 
                 </div>
+
+
+
+
+
+
+
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.logradouro_forn, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                </div>
+
+
+
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.num_forn, new { @class = "input", placeholder = "Número" })
+                </div>
+
+
+
+                <div class="form-group">
+
+                    @Html.TextBoxFor(model => model.tel_forn, new { @class = "input", placeholder = "Telefone" })
+                </div>
+
+
+
+
+
+
+                <div class="form-group">
+                    @Html.TextBoxFor(model => model.id_prod, new { @class = "input", placeholder = "id do produto" })
+                </div>
+
+
+
+
+
+            </div>
 
 
 

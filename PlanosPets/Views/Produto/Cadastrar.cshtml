@@ -13,12 +13,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar</title>
-<<<<<<< Updated upstream
-    <link rel="stylesheet" href="~/assets/css/cadastrar.css">
-=======
     <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
     <link rel="stylesheet" href="~/assets/css/cadastrar1.css">
->>>>>>> Stashed changes
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="scripts-forms" defer></script>
 </head>
@@ -34,47 +30,43 @@
             @using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
-        <div class="itens-cadastro">
-            <div class="form-group">
-                @Html.TextBoxFor(model => model.nome_prod, new { @class = "input", placeholder = "Nome do Produto..." })
-            </div>
-            @Html.ValidationMessageFor(model => model.nome_prod, "", new { @class = "text-danger", style = "display:inline" })
-            <div class="form-group">
-                @Html.TextBoxFor(model => model.quant, new { @class = "input", placeholder = "Quantidade..." })
-            </div>
-            @Html.ValidationMessageFor(model => model.quant, "", new { @class = "text-danger", style = "display:inline" })
-            <div class="form-group">
-                @Html.TextBoxFor(model => model.valor_unitario, new { @class = "input", placeholder = "Preço..." })
-            </div>
-            @Html.ValidationMessageFor(model => model.valor_unitario, "", new { @class = "text-danger", style = "display:inline" })
-            <div id="raca-pet">
-                @Html.DropDownList("categoria", "Categorias")
-            </div>
-            <div id="desc-area">
-                <h3>descrição:</h3>
-<<<<<<< Updated upstream
-                @Html.TextAreaFor(model => model.desc_prod, new { placeholder = "descrição...", style = "width: 358px; height: 125px;", @id = "descrição" })
-=======
-                @Html.TextAreaFor(model => model.desc_prod, new { placeholder = "descrição...", style = " resize: none", @id = "descrição", cols = "30", rows = "4" })
->>>>>>> Stashed changes
-            </div>
-            <div id="sec-arquivo">
+                <div class="itens-cadastro">
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.nome_prod, new { @class = "input", placeholder = "Nome do Produto..." })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.nome_prod, "", new { @class = "text-danger", style = "display:inline" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.quant, new { @class = "input", placeholder = "Quantidade..." })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.quant, "", new { @class = "text-danger", style = "display:inline" })
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.valor_unitario, new { @class = "input", placeholder = "Preço..." })
+                    </div>
+                    @Html.ValidationMessageFor(model => model.valor_unitario, "", new { @class = "text-danger", style = "display:inline" })
+                    <div id="raca-pet">
+                        @Html.DropDownList("categoria", "Categorias")
+                    </div>
+                    <div id="desc-area">
+                        <h3>descrição:</h3>
+                        @Html.TextAreaFor(model => model.desc_prod, new { placeholder = "descrição...", style = " resize: none", @id = "descrição", cols = "30", rows = "4" })
+                    </div>
+                    <div id="sec-arquivo">
 
-                <div id="file-pet">
-                    <label class="botao-arquivo" for="file">foto </label>
-                    <input type="file" name="file" id="file" />
+                        <div id="file-pet">
+                            <label class="botao-arquivo" for="file">foto </label>
+                            <input type="file" name="file" id="file" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-            <div class="cadastra-bt">
-                <input type="submit" value="Cadastrar" class="botao-cadastrar " />
-            </div>
+                <div class="cadastra-bt">
+                    <input type="submit" value="Cadastrar" class="botao-cadastrar " />
+                </div>
             }
-</section>
+        </section>
 
     </main>
-  
+
 </body>
 </html>
 @section Scripts{

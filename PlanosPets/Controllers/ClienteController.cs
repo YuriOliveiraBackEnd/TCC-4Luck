@@ -45,11 +45,9 @@ namespace PlanosPets.Controllers
         {
             List<SelectListItem> gato = new List<SelectListItem>();
 
-<<<<<<< Updated upstream
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=cassali1"))
-=======
+
             using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase=db4luck;User=root;pwd=metranca789456123"))
->>>>>>> Stashed changes
+
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from Raca where tipo_animal = 'gato'", con);

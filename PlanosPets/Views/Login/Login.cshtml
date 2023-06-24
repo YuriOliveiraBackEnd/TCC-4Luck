@@ -1,50 +1,46 @@
 ﻿@model PlanosPets.ViewModels.LoginViewModel
 
 <title>Login</title>
-<<<<<<< Updated upstream
-<link href="~/assets/css/login.css" rel="stylesheet" />
-=======
 <link rel="stylesheet" href="~/assets/css/header-cliente.css">
 <link href="~/assets/css/login2.css" rel="stylesheet" />
->>>>>>> Stashed changes
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <html lang="pt-br">
 <body>
-<main>
-    <!--Login Cliente-->
-    <section class="sec-login">
-        <!--Logo-->
-        <div class="info-login">
-            <img src="~/assets/images/logo-branca.svg" alt="">
-        </div>
+    <main>
+        <!--Login Cliente-->
+        <section class="sec-login">
+            <!--Logo-->
+            <div class="info-login">
+                <img src="~/assets/images/logo-branca.svg" alt="">
+            </div>
 
-        @using (Html.BeginForm())
-        {
-            @Html.AntiForgeryToken()
-
-
-
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="itens-login">
-        <div class="form-group">
-            @Html.TextBoxFor(model => model.Email, new { @id = "email", @class = "input", placeholder = "E-mail" })
-            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-        </div>
-        <div class="form-group">
-            @Html.TextBoxFor(model => model.senha, new { @id = "senha", @class = "input", placeholder = "Senha", @type = "password" })
-            @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
-        </div>
-        </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
 
-        <input type="submit" value="Entrar" class="botao-entrar" />
-        <p>ou</p>
-        @Html.ActionLink("Cadastre-se", "Cadastrar", "Cliente", new { area = "" }, new { @class = "botao-cadastrar" })
 
-        }
-</section>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="itens-login">
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.Email, new { @id = "email", @class = "input", placeholder = "E-mail" })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.TextBoxFor(model => model.senha, new { @id = "senha", @class = "input", placeholder = "Senha", @type = "password" })
+                        @Html.ValidationMessageFor(model => model.senha, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-</main>
-    </body>
+
+                <input type="submit" value="Entrar" class="botao-entrar" />
+                <p>ou</p>
+                @Html.ActionLink("Cadastre-se", "Cadastrar", "Cliente", new { area = "" }, new { @class = "botao-cadastrar" })
+
+            }
+        </section>
+
+    </main>
+</body>
 </html>
 

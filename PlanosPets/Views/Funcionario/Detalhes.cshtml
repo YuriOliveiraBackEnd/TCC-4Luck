@@ -8,89 +8,6 @@
 
 }
 
-<<<<<<< Updated upstream
-<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-        crossorigin="anonymous"></script>
-@Scripts.Render("~/Scripts/cep.js")
-<html>
-<body>
-    <main>
-        <section class="sec-cadastrar">
-            <div class="info-cadastrar">
-                <h1 id="cad-title2">Detalhes</h1>
-                <img src="~/assets/images/logo-branca.svg" alt="">
-            </div>
-           
-            <div class="itens-cadastro">
-                @Html.TextBoxFor(model => model.id_func, new { @class = "input", placeholder = "ID" })
-                <div class="form-group">
-                    @Html.TextBoxFor(model => model.nome_func, new { @class = "input", placeholder = "Nome" })
-                </div>
-                @Html.ValidationMessageFor(model => model.nome_func, "", new { @class = "text-danger", style = "display:inline" })
-
-
-                <div class="form-group">
-                    @Html.TextBoxFor(model => model.email_func, new { @class = "input", placeholder = "E-mail" })
-                </div>
-                @Html.ValidationMessageFor(model => model.email_func, "", new { @class = "text-danger" })
-                <div class="text-danger">@ViewBag.Email</div>
-
-
-                <div class="form-group">
-                    @Html.TextBoxFor(model => model.CPF_func, new { @class = "input", placeholder = "CPF" })
-                </div>
-                @Html.ValidationMessageFor(model => model.CPF_func, "", new { @class = "text-danger" })
-                <div class="text-danger">@ViewBag.CPF</div>
-
-
-                <div class="form-group">
-                    @Html.TextBoxFor(model => model.tel_func, new { @class = "input", placeholder = "Telefone" })
-                </div>
-                @Html.ValidationMessageFor(model => model.tel_func, "", new { @class = "text-danger" })
-
-                <div id="input-date">
-                    @Html.TextBoxFor(model => model.nasc_func, new { @class = "input", placeholder = "Data de nascimento" })
-                    @Html.ValidationMessageFor(model => model.nasc_func, "", new { @class = "text-danger" })
-                </div>
-                <div id="input-cep">
-
-                    @Html.TextBoxFor(model => model.cep_func, new { @id = "cep", @class = "input", placeholder = "CEP" })
-                    @Html.ValidationMessageFor(model => model.cep_func, "", new { @class = "text-danger" })
-
-                </div>
-
-
-               
-                    @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
-                    @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
-               
-            <div id="input-cep">
-                    @Html.TextBoxFor(model => model.num_func, new { @class = "input", placeholder = "Número" })
-                    @Html.ValidationMessageFor(model => model.num_func, "", new { @class = "text-danger", @id = "logradouro_func" })
-                </div>
-            </div>
-          
-            
-        </section>
-
-    </main>
-</body>
-</html>
-
-
-
-@section Scripts {
-
-    @Scripts.Render("~/bundles/jqueryval")
-
-}
-
-
-=======
 <link href="~/assets/css/cadastrar1.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,7 +23,7 @@
                 <h1 id="cad-title2">Detalhes</h1>
                 <img src="~/assets/images/logo-branca.svg" alt="">
             </div>
-           
+
             <div class="itens-cadastro">
                 @Html.TextBoxFor(model => model.id_func, new { @class = "input", placeholder = "ID" })
                 <div class="form-group">
@@ -146,17 +63,17 @@
                 </div>
 
 
-               
-                    @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
-                    @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
-               
-            <div id="input-cep">
+
+                @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
+
+                <div id="input-cep">
                     @Html.TextBoxFor(model => model.num_func, new { @class = "input", placeholder = "Número" })
                     @Html.ValidationMessageFor(model => model.num_func, "", new { @class = "text-danger", @id = "logradouro_func" })
                 </div>
             </div>
-          
-            
+
+
         </section>
 
     </main>
@@ -172,6 +89,5 @@
 }
 
 
->>>>>>> Stashed changes
 
 

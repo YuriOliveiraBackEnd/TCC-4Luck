@@ -197,19 +197,13 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
-    <Content Include="assets\css\cadastrar.css" />
     <Content Include="assets\css\carrinho5.css" />
-    <Content Include="assets\css\catalogo.css" />
-    <Content Include="assets\css\forma-pagamento.css" />
     <Content Include="assets\css\glider.css" />
     <Content Include="assets\css\lista2.css" />
     <Content Include="assets\css\login.css" />
     <Content Include="assets\css\perfil-cliente.css" />
     <Content Include="assets\css\perfil-pets3.css" />
-    <Content Include="assets\css\produto.css" />
     <Content Include="assets\css\style1.css" />
-=======
     <Content Include="assets\css\header-funcionario.css" />
     <Content Include="assets\css\header-cliente1.css" />
     <Content Include="assets\css\cadastrar1.css" />
@@ -224,7 +218,7 @@
     <Content Include="assets\css\planos.css" />
     <Content Include="assets\css\produto1.css" />
     <Content Include="assets\css\style3.css" />
->>>>>>> Stashed changes
+    <Content Include="assets\images\background-patas.png" />
     <Content Include="assets\images\banner1.png" />
     <Content Include="assets\images\cachorro-sobre.png" />
     <Content Include="assets\images\categoria-cachorros-home.png" />
@@ -456,8 +450,6 @@
     <Content Include="Views\Produto\ListaProduto.cshtml" />
     <Content Include="Views\Home\Detalhes.cshtml" />
     <Content Include="Views\Pets\Index.cshtml" />
-    <Content Include="Views\Pets\Excluir.cshtml" />
-    <Content Include="Views\Raca\Excluir.cshtml" />
     <Content Include="Views\Funcionario\AtualizarPerfil.cshtml" />
     <Content Include="Views\Cliente\Detalhes.cshtml" />
     <Content Include="Views\Home\ListarPlanos.cshtml" />

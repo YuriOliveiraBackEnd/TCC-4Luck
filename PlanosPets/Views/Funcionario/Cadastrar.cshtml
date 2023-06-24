@@ -8,13 +8,8 @@
 
 }
 
-<<<<<<< Updated upstream
-<link href="~/assets/css/cadastrar.css" rel="stylesheet" />
-
-=======
 <link href="~/assets/css/cadastrar1.css" rel="stylesheet" />
 <link rel="stylesheet" href="~/assets/css/header-funcionario.css">
->>>>>>> Stashed changes
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
@@ -97,32 +92,32 @@
                         @Html.TextBoxFor(model => model.uf, new { @id = "uf", @class = "input", placeholder = "UF" })
                     </div>
                     @Html.ValidationMessageFor(model => model.uf, "", new { @class = "text-danger" })
-                  
-                        @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
-                        @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
-                  
+
+                    @Html.TextBoxFor(model => model.logradouro_func, new { @id = "rua", @class = "input", placeholder = "Rua" })
+                    @Html.ValidationMessageFor(model => model.logradouro_func, "", new { @class = "text-danger" })
+
                     <div id="input-cep">
                         @Html.TextBoxFor(model => model.num_func, new { @class = "input", placeholder = "Número" })
                         @Html.ValidationMessageFor(model => model.num_func, "", new { @class = "text-danger", @id = "logradouro_func" })
-                        </div>
                     </div>
-                    <div class="cadastra-bt">
-                        <input type="submit" value="Cadastrar" class="botao-cadastrar " />
-                    </div>
-                    }
-</section>
+                </div>
+                <div class="cadastra-bt">
+                    <input type="submit" value="Cadastrar" class="botao-cadastrar " />
+                </div>
+            }
+        </section>
 
     </main>
 </body>
-    </html>
- 
+</html>
 
 
-        @section Scripts {
 
-            @Scripts.Render("~/bundles/jqueryval")
+@section Scripts {
 
-        }
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
 
 
 
