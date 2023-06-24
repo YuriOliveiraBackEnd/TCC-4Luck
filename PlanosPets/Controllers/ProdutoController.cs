@@ -74,10 +74,7 @@ namespace PlanosPets.Controllers
                 CarregaCategoria();
                 return View(produto);
             }
-<<<<<<< Updated upstream
-=======
-         
->>>>>>> Stashed changes
+
             var metodoProduto = new ProdutoDAO();
             string Email = Session["FuncLogado"] as string;
             string id = new ProdutoDAO().SelectIdDofunc(Email);
